@@ -21,6 +21,7 @@
     # vim-related
     # ~/.vim: vim
     # ~/.vimrc: vimrc
+    ~/.pythonrc: python/pythonrc
     # git-related files
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
