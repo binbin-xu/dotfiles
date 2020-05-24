@@ -25,6 +25,16 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+parse_branch() {
+  local branch
+  branch=`git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  [ "$branch" != "" ] && printf "\e[0m on \e[0;33m$branch\e[0m"
+}
+show_venv() {
+  if [ ! -z $CONDA_PREFIX ]; then
+    printf " workon \e[0;34mconda:$CONDA_DEFAULT_ENV\e[0m"
+  fi
+}
 # uncomment for a colored prompt, if the terminal has the capability; turned off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 # force_color_prompt=yes
@@ -41,10 +51,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_branch)\e[0m$(show_venv)\n$ '
     PS2="${COLOR_BLUE}>${COLOR_DEFAULT} "
 else
-    PS1='\n${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$ '
+    PS1='\n${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$$(parse_branch)\e[0m$(show_venv)\n$ '
     PS2="${COLOR_BLUE}>${COLOR_DEFAULT} "
 fi
 unset color_prompt force_color_prompt
