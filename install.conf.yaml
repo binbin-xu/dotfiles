@@ -13,8 +13,9 @@
     ~/.bash: bash/bash_extra
     ~/.bashrc: bash/bashrc
     ~/.bash_profile: bash/bash_profile
-    # ~/.zsh: zsh/zsh_extra
-    # ~/.zshrc: zsh/zshrc
+    ~/.zshrc: zsh/zshrc
+    ~/.zsh: zsh
+    ~/.oh-my-zsh: zsh/ohmyzsh
     # tmux-related
     # ~/.tmux.conf: tmux.conf
     # vim-related
