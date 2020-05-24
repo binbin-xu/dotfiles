@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    # ~/.dotfiles: ''
+    # ~/.tmux.conf: tmux.conf
+    # ~/.vim: vim
+    # ~/.vimrc: vimrc
+    # git-related files
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+
+# - create:
+    # - ~/.vim/undo-history
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  # the following have to run after linking ~/.gitconfig
+  - git update-submodules

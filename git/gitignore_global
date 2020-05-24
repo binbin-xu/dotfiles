@@ -1,0 +1,57 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc  # python
+*.out   # C++
+cmake-build-debug/
+build/
+release/
+dist/
+*.egg-info/
+
+# Editing tools and IDEs #
+##########################
+[._]*.sw[a-p]
+[._]*.s[a-v][a-z]
+*~
+~*
+\#*\#
+\.#*
+.ipynb_checkpoints/
+.idea/
+.vscode/
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# Thumbnail cache files
+._*
+Thumbs.db
+ehthumbs.db
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# local conda environment
+.anaconda
+.anaconda2/
+.anaconda3/
+.autoenv.zsh
+.autoenv_leave.zsh
+
+a.*
+nohup.out
+nohup_*.out

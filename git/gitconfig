@@ -1,0 +1,62 @@
+[alias]
+	versions = tag -l --sort=version:refname
+	br = branch -vv
+	bra = branch -vv --all
+	aa = add --all :/
+	ci = commit -v
+	ca = commit --amend -v
+	save = commit -a -m "Save"
+	co = checkout
+	di = diff
+	dc = diff --cached
+	dh = diff HEAD~
+	du = diff @{u}...
+	grp = grep -C 1
+	lg = log -p
+	gr = log --graph --format=line # graph
+	update-submodules = submodule update --init --recursive
+	upgrade-submodules = submodule update --init --remote
+	targz = ! "targz() { git archive --format tar.gz --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; targz"
+	zip = ! "zip() { git archive --format zip --prefix=\"${PWD##*/}/\" HEAD -o ${1}; }; zip"
+
+[diff]
+	mnemonicPrefix = true
+	wordRegex = "[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+"
+	compactionHeuristic = true
+
+[color]
+	ui = auto
+
+[color "grep"]
+	match = cyan bold
+	selected = blue
+	context = normal
+	filename = magenta
+	linenumber = green
+	separator = yellow
+	function = blue
+
+[grep]
+	lineNumber = true
+
+[pretty]
+	line = "%C(auto)%h %<|(60,trunc)%s %C(green)%ad%C(auto)%d"
+	detail = "%C(auto)%h %s%n  %C(yellow)by %C(blue)%an %C(magenta)<%ae> [%G?] %C(green)%ad%n %C(auto)%d%n"
+
+[user]
+	email = b.xu17@imperial.ac.uk
+	name = Binbin Xu
+	# useConfigOnly = true
+
+[credential]
+	helper = cache --timeout=3600
+
+[push]
+	default = simple
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+# Allow local customizations in the .gitconfig_local file
+[include]
+	path = ~/.gitconfig_local
