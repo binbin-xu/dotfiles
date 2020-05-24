@@ -12,3 +12,5 @@ HISTCONTROL=ignoreboth
 shopt -s checkwinsize
 
 export EDITOR=vim
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
