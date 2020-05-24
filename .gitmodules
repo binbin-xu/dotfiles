@@ -4,3 +4,6 @@
 [submodule "latex/robotvisionbib"]
 	path = latex/robotvisionbib
 	url = https://bitbucket.org/andysan29/robotvisiontex.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
