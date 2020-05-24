@@ -7,3 +7,9 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "zsh/plugins/dircolors-solarized"]
+	path = shell/plugins/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "shell/plugins/dircolors-solarized"]
+	path = shell/plugins/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git

@@ -18,5 +18,11 @@ Contents:
   * gitconfig
   * gitignore_global
 
-* 
+* Shell
+
+  * shell: settings commonly used in bash/zsh
+  * bash
+  * zsh
+  * PATH
+  * "xxx_local_before/after" is later installed in local_dotfiles
 

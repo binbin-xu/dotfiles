@@ -6,8 +6,18 @@
 - clean: ['~', '~/.config']
 
 - link:
-    # ~/.dotfiles: ''
+    ~/.dotfiles: ''
+    # shell-related
+    ~/.PATH: PATH
+    ~/.shell: shell 
+    ~/.bash: bash/bash_extra
+    ~/.bashrc: bash/bashrc
+    ~/.bash_profile: bash/bash_profile
+    # ~/.zsh: zsh/zsh_extra
+    # ~/.zshrc: zsh/zshrc
+    # tmux-related
     # ~/.tmux.conf: tmux.conf
+    # vim-related
     # ~/.vim: vim
     # ~/.vimrc: vimrc
     # git-related files
