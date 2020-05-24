@@ -26,7 +26,6 @@ alias_if_exists "id" "/usr/local/bin/gid"
 # Shortcuts
 
 # Use colors in coreutils utilities output
-alias ls='ls --color=auto'
 alias grep='grep --color'
 
 # ls aliases
@@ -292,14 +291,14 @@ case "$(uname -s)" in
         alias bu="brew update && brew outdated | xargs brew upgrade  && brew cleanup -s"
         alias mvf='mv "$(pfs)"' # Move current finder selection
         alias ssh_unmount='sudo diskutil unmount force '
-
+        alias ls='ls -G'
         ;;
 
     Linux)
         #  echo 'Linux'
         alias watch_gpu='watch -n 0.1 nvidia-smi'
-
         alias ssh_unmount='fusermount -u '
+        alias ls='ls --color=auto'
 
             ;;
 
