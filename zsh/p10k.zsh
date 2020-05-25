@@ -181,7 +181,7 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND="aqua" # 255
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -532,26 +532,6 @@
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
 
-  ##########[ nordvpn: nordvpn connection status, linux only (https://nordvpn.com/) ]###########
-  # NordVPN connection indicator color.
-  typeset -g POWERLEVEL9K_NORDVPN_FOREGROUND=39
-  # Hide NordVPN connection indicator when not connected.
-  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_CONTENT_EXPANSION=
-  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_VISUAL_IDENTIFIER_EXPANSION=
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_NORDVPN_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
-  #################[ ranger: ranger shell (https://github.com/ranger/ranger) ]##################
-  # Ranger shell color.
-  typeset -g POWERLEVEL9K_RANGER_FOREGROUND=178
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
-
-  ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
-  # Nnn shell color.
-  typeset -g POWERLEVEL9K_NNN_FOREGROUND=72
-  # Custom icon.
-  # typeset -g POWERLEVEL9K_NNN_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ###########################[ vim_shell: vim shell indicator (:sh) ]###########################
   # Vim shell indicator color.
@@ -1003,6 +983,28 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 #######         Unused configuration
 ################################################################
 
+
+  ##########[ nordvpn: nordvpn connection status, linux only (https://nordvpn.com/) ]###########
+  # NordVPN connection indicator color.
+  typeset -g POWERLEVEL9K_NORDVPN_FOREGROUND=39
+  # Hide NordVPN connection indicator when not connected.
+  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_CONTENT_EXPANSION=
+  typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_VISUAL_IDENTIFIER_EXPANSION=
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_NORDVPN_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  #################[ ranger: ranger shell (https://github.com/ranger/ranger) ]##################
+  # Ranger shell color.
+  typeset -g POWERLEVEL9K_RANGER_FOREGROUND=178
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
+  # Nnn shell color.
+  typeset -g POWERLEVEL9K_NNN_FOREGROUND=72
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_NNN_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
   # Direnv color.
