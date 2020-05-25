@@ -12,6 +12,15 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'sjl/gundo.vim'
+Plugin 'scrooloose/syntastic'
 
 " add all your plugins here
 " Keep Plugin commands between vundle#begin/end.
@@ -48,7 +57,33 @@ augroup END
 
 " colorscheme
 set background=dark
-colorscheme default
+" vim can autodetect this based on $TERM (e.g. 'xterm-256color')
+" but it can be set to force 256 colors
+" set t_Co=256
+if has('gui_running')
+    colorscheme solarized
+    let g:lightline = {'colorscheme': 'solarized'}
+elseif &t_Co < 256
+    colorscheme default
+    set nocursorline " looks bad in this mode
+else
+    set background=dark
+    let g:solarized_termcolors=256 " instead of 16 color with mapping in terminal
+    colorscheme solarized
+    " customized colors
+    highlight SignColumn ctermbg=234
+    highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
+    highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
+    let g:lightline = {'colorscheme': 'dark'}
+    highlight SpellBad cterm=underline
+endif
+
+set autoindent
+
+
+"---------------------
+" Basic editing config
+"---------------------
 
 " Highlight dynamically as pattern is typed
 set showmatch
@@ -58,6 +93,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set nowrapscan
 set infercase
 set virtualedit=all
+set matchpairs& matchpairs+=<:>
 
 " Show line numbers.
 set number
@@ -66,9 +102,9 @@ set number
 " relativenumber enabled, the current line shows the true line number, while
 " all other lines (above and below) are numbered relative to the current line.
 " This is useful because you can tell, at a glance, what count is needed to
-" jump up or down to a particular line, by {count}k to go up or {count}j to go
-" down.
+" jump up or down to a particular line, by {count}k to go up or {count}j to go down.
 set relativenumber
+
 
  " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
@@ -85,6 +121,10 @@ endif
 set wildmenu
 set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz
 set wildmode=list,full
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -104,22 +144,17 @@ endif
 
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
-set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,euc-jp
 
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
 
-"---------------------
-" Basic editing config
-"---------------------
 set backspace=indent,eol,start  " Allow backspace in insert mode
-
 
 " Don't continue to highlight searched phrases.
 set nohlsearch
 set incsearch " incremental search (as string is being typed)
-set hls " highlight search
+" set hls " highlight search
 
 " use 4 spaces instead of tabs during formatting
 set expandtab
@@ -129,9 +164,23 @@ set softtabstop=4         " unify
 set shiftround    " indent/outdent by 4 columns
 set iminsert=0
 
+" PEP 8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set fileformat=unix
+
+au BufNewFile,BufRead *.h, *.C++
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+    \ set textwidth=79
+
 " wrap for long line
 set wrap
-
 
 
 " Respect modeline in files
@@ -155,7 +204,7 @@ endif
 
 " Enable mouse in all modes
 if has('mouse')
-  set mouse=a
+  set mouse+=a
 endif
 
 " Ignore case of searches
@@ -169,13 +218,9 @@ set splitbelow
 set splitright
 set history=8192 " more history
 set commentstring=\ #\ %s
-set autoindent
 set browsedir=buffer
 set hidden
 
-
-
-set matchpairs& matchpairs+=<:>
 
 " A buffer becomes hidden when it is abandoned
 set hidden " allow auto-hiding of edited buffers
@@ -186,8 +231,6 @@ set ignorecase
 set smartcase
 
 
-
-
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
@@ -195,11 +238,81 @@ au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 let skip_defaults_vim=1                      
 
- " Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
+"---------------------
+" Plugin configuration
+"---------------------
+" nerdtree
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+
+" tagbar
+nnoremap <Leader>t :TagbarToggle<CR>
+
+" ctrlp
+nnoremap ; :CtrlPBuffer<CR>
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_show_hidden = 1
+
+" easymotion
+map <Space> <Plug>(easymotion-prefix)
+
+" air-line
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" gundo
+nnoremap <Leader>u :GundoToggle<CR>
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': []
+\}
+nnoremap <Leader>s :SyntasticCheck<CR>
+nnoremap <Leader>r :SyntasticReset<CR>
+nnoremap <Leader>i :SyntasticInfo<CR>
+nnoremap <Leader>m :SyntasticToggleMode<CR>
+
+"--------------------
+" Misc configurations
+"--------------------
+
+" unbind keys
+map <C-a> <Nop>
+map <C-x> <Nop>
+
+ " Try to prevent bad habits like using the arrow keys for movement. 
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -210,3 +323,12 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" quicker (vim-way) window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" save read-only files
+command -nargs=0 Sudow w !sudo tee % >/dev/null
