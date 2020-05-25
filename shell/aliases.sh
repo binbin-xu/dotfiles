@@ -46,14 +46,15 @@ alias df="df -h"           # -h prints human readable format
 alias rsync='rsync -av -P'
 
 # git related aliases
+# there are also some alias in git config
 alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
 alias gst='git status'
 # commit 
-alias gc='git commit -v'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gcam='git commit -a -m'
-alias gcmsg='git commit -m'
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
 alias gl='git pull'

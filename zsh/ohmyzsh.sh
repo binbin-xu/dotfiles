@@ -1,7 +1,7 @@
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     zsh-autosuggestions
-    git
+    # git    # comment out due to too many alias info
     zsh-syntax-highlighting
     zsh-completions
 )
