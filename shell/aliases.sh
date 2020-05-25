@@ -68,6 +68,7 @@ alias gag='git exec ag'
 alias tb='tensorboard --logdir '
 
 # tmux
+alias t='tmux'
 alias ta='tmux attach -t'
 alias tn='tmux new -s '
 alias tl='tmux list-sessions'

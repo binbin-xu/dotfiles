@@ -17,7 +17,8 @@
     ~/.zsh: zsh
     ~/.oh-my-zsh: zsh/ohmyzsh
     # tmux-related
-    # ~/.tmux.conf: tmux.conf
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux/tmux.conf
     # vim-related
     # ~/.vim: vim
     # ~/.vimrc: vimrc
