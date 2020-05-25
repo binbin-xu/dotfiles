@@ -22,3 +22,6 @@
 [submodule "zsh/zsh-autoenv"]
 	path = zsh/zsh-autoenv
 	url = https://github.com/Tarrasch/zsh-autoenv.git
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
