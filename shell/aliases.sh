@@ -55,6 +55,9 @@ alias gst='git status'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
+# checkout 
+alias gco='git checkout'
+alias gcm='git checkout master'
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
 alias gl='git pull'
@@ -73,6 +76,7 @@ alias t='tmux'
 alias ta='tmux attach -t'
 alias tn='tmux new -s '
 alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
 
 ## Jupyter
 alias jc="jupyter console"
