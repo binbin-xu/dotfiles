@@ -1,0 +1,178 @@
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=indent,eol,start  " Allow backspace in insert mode
+
+"------------------
+" Syntax and indent
+"------------------
+syntax on " turn on syntax highlighting
+
+" highlight current line, but only in active window
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" colorscheme
+set background=dark
+colorscheme default
+
+" Highlight dynamically as pattern is typed
+set showmatch
+set smartcase
+set smartindent
+set whichwrap=b,s,h,l,<,>,[,]
+set nowrapscan
+set infercase
+set virtualedit=all
+
+" Show line numbers.
+set number
+
+ " This enables relative line numbering mode. With both number and
+" relativenumber enabled, the current line shows the true line number, while
+" all other lines (above and below) are numbered relative to the current line.
+" This is useful because you can tell, at a glance, what count is needed to
+" jump up or down to a particular line, by {count}k to go up or {count}j to go
+" down.
+set relativenumber
+
+ " Always show the status line at the bottom, even if you only have one window open.
+set laststatus=2
+
+" clipboard
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+else
+  set clipboard=unnamed
+endif
+
+" Enhance command-line completion
+set wildmenu
+set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz
+set wildmode=list,full
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+  set wildignore+=.git\*,.hg\*,.svn\*
+endif
+
+" Allow cursor keys in insert mode
+" set esckeys
+
+" Optimize for fast terminal connections
+if has('nvim')
+  set ttyfast
+endif
+
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+set fileencodings=ucs-bom,utf-8,iso-2022-jp,sjis,euc-jp
+
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+
+" filetype detection[ON] plugin[ON] indent[ON]
+filetype plugin indent on
+
+" Don't continue to highlight searched phrases.
+set nohlsearch
+set incsearch " incremental search (as string is being typed)
+set hls " highlight search
+
+" use 4 spaces instead of tabs during formatting
+set expandtab
+set tabstop=4
+set shiftwidth=4          " indent/outdent by 4 columns
+set softtabstop=4         " unify
+set shiftround    " indent/outdent by 4 columns
+set iminsert=0
+
+" wrap for long line
+set wrap
+
+
+
+" Respect modeline in files
+set modeline
+set modelines=4
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+if has('nvim')
+  set t_vb=
+endif
+set tm=500
+
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+set modifiable
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+" Enable mouse in all modes
+if has('mouse')
+  set mouse=a
+endif
+
+" Ignore case of searches
+set ignorecase
+
+" Show the cursor position
+set ruler
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+set history=8192 " more history
+set commentstring=\ #\ %s
+set autoindent
+set browsedir=buffer
+set hidden
+
+
+
+set matchpairs& matchpairs+=<:>
+
+" A buffer becomes hidden when it is abandoned
+set hidden " allow auto-hiding of edited buffers
+" This setting makes search case-insensitive when all characters in the string
+" being searched are lowercase. However, the search becomes case-sensitive if
+" it contains any capital letters. This makes searching more convenient.
+set ignorecase
+set smartcase
+
+
+
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+let skip_defaults_vim=1                      
+
+ " Try to prevent bad habits like using the arrow keys for movement. This is
+" not the only possible bad habit. For example, holding down the h/j/k/l keys
+" for movement, rather than using more efficient movement commands, is also a
+" bad habit. The former is enforceable through a .vimrc, while we don't know
+" how to prevent the latter.
+" Do this in normal mode...
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+" ...and in insert mode
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+inoremap <Down>  <ESC>:echoe "Use j"<CR>

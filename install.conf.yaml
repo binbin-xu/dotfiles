@@ -20,8 +20,9 @@
     ~/.tmux: tmux
     ~/.tmux.conf: tmux/tmux.conf
     # vim-related
-    # ~/.vim: vim
-    # ~/.vimrc: vimrc
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+    # python related
     ~/.pythonrc: python/pythonrc
     # git-related files
     ~/.gitconfig: git/gitconfig
