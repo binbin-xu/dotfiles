@@ -1,4 +1,11 @@
 # dircolors
 if [[ "$(tput colors)" == "256" ]]; then
-    eval "$(dircolors ~/.shell/plugins/dircolors-solarized/dircolors.256dark)"
+    if [[ "$(uname)" == "Linux" ]]; then 
+        eval "$(dircolors ~/.shell/plugins/dircolors-solarized/dircolors.256dark)"
+    fi
+
+    if [[ "$(uname)" == "Darwin" ]]; then 
+        export CLICOLOR=YES
+        export LSCOLORS="Gxfxcxdxbxegedabagacad"
+    fi
 fi
