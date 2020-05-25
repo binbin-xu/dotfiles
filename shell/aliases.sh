@@ -84,7 +84,7 @@ alias py3='python3 '
 #conda 
 alias ca='conda activate'
 alias sa='source activate'
-alias cda='conda deactivate'
+alias cod='conda deactivate'  # different  from cd 
 alias sd="source deactivate"
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
