@@ -1,4 +1,12 @@
-# Binbin Xu dotfiles
+# Binbin Xu's dotfiles
+
+Usage:
+
+```
+./install
+```
+
+
 
 Contents:
 
@@ -18,11 +26,15 @@ Contents:
   * gitconfig
   * gitignore_global
 
-* Shell
+* shell: 
+  settings commonly used in bash/zsh
+* bash
 
-  * shell: settings commonly used in bash/zsh
-  * bash
-  * zsh
-  * PATH
-  * "xxx_local_before/after" is later installed in local_dotfiles
+* zsh
 
+* tmux
+
+* PATH
+  functional, PATH and machine specific PATHs
+
+* 
