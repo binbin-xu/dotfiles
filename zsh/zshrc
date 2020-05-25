@@ -24,11 +24,8 @@ source ~/.shell/aliases.sh
 source ~/.zsh/setopt.zsh
 source ~/.zsh/ohmyzsh.sh
 
-# use zsh-autoenv
-source ~/.zsh/zsh-autoenv/autoenv.zsh
-
-# use fzf for zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# plugins settings
+source ~/.zsh/plugins-settings.zsh
 
 # Alt left/right moves words
 bindkey "^[[1;3C" forward-word
@@ -37,6 +34,9 @@ bindkey "^[[1;3D" backward-word
 # Alt up/down goes to beggining/end of line
 bindkey "^[[1;3A" beginning-of-line
 bindkey "^[[1;3B" end-of-line
+
+# path-settings
+source ~/.PATH/path.sh
 
 # Allow local customizations in the ~/.shell_local_after file
 if [ -f ~/.shell_local_after ]; then
