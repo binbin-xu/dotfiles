@@ -1,4 +1,4 @@
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     zsh-autosuggestions
     git
