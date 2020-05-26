@@ -36,6 +36,9 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
 
 `ed25519`  is safer than `ras`. In case some old machine does not support `ed25519`, then also generate  an `rsa` key
 
+* Server side: skip the passphrase
+
+
 * local machine: 
   Use passphrase to keep it safe.
 
@@ -44,10 +47,6 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
 ```
 ssh-keygen -y -f ~/.ssh/id_ed25519
 ```
-
-* Server side: skip the passphrase
-
--------
 
 
 
@@ -152,10 +151,12 @@ chsh -s /usr/bin/zsh
 
 ```
 cd ~
-git clone https://github.com/binbin-xu/dotfiles.git
+git clone git@github.com:binbin-xu/dotfiles.git
 cd dotfiles
 ./install
 
+# in vim
+:PluginInstall
 # incase youcomepleteme server is down
 cd dotfiles/vim/bundle/youcompleteme
 ./install.py
