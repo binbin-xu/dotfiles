@@ -191,12 +191,8 @@ set modeline
 set modelines=4
 
 " No annoying sound on errors
-set noerrorbells
-set novisualbell
-if has('nvim')
-  set t_vb=
-endif
-set tm=500
+set noerrorbells visualbell t_vb=    "Disable annoying error noises
+set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
 
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
