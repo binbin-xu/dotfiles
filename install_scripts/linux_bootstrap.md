@@ -71,9 +71,13 @@ ssh-keygen -y -f ~/.ssh/id_ed25519
 
   
 
---------
+## SSH for local machine
 
-### ssh for server side
+### Avoid typing your passphrase every time 
+
+When choosing to add passphrase on local machine, we can use  `ssh-agent` to avoid typing passphrase each time.
+
+### SSH to the server
 
 * Send SSH keys to the server
 
@@ -81,22 +85,7 @@ ssh-keygen -y -f ~/.ssh/id_ed25519
 ssh-copy-id -i .ssh/id_ed25519.pub user@server
 ```
 
-Only need to type ssh password once to transfer the public key.  It will be saved in Add ssh key to `~/.ssh/authorized_keys`.
-
-* Config:
-  Server side configuration is usually specified in `/etc/ssh/sshd_config`. 
-  Here you can make changes like disabling password authentication, changing ssh ports, enabling X11 forwarding, &c. You can specify config settings on a per user basis.
-  e.g.  set `PasswordAuthentication no`
-
-## SSH for local machine
-
-### Avoid typing your passphrase every time 
-
-When choosing to add passphrase on local machine, we can use  `ssh-agent` to avoid typing passphrase each time.
-
-
-
-### SSH to the server
+Only need to type ssh password once to transfer the public key.  It will be saved in Add ssh key to `~/.ssh/authorized_keys` in the server side.
 
 * ssh config
   Do not use alias to set ssh, instead using config file in `.ssh/config`
@@ -115,6 +104,22 @@ Host cressida
 Host *.doc.ic.ac.uk
     User bx516
 ```
+
+* Do not share ssh config on the dotfiles!
+  It can save for example in a personal source drive
+
+  ```
+  ln -s dropbox/config/ssh ~/.ssh/config
+  ```
+
+  
+
+## SSH on the server side
+
+* Config:
+  Server side configuration is usually specified in `/etc/ssh/sshd_config`. 
+  Here you can make changes like disabling password authentication, changing ssh ports, enabling X11 forwarding, &c. You can specify config settings on a per user basis.
+  e.g.  set `PasswordAuthentication no`
 
 
 
