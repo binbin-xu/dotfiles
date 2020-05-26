@@ -98,9 +98,6 @@ alias peek='tee >(cat 1>&2)'
 
 # ssh:
 # do not use aliases, use config instead
-# alias sshbigdaddy="ssh bx516@bigdaddy.doc.ic.ac.uk"
-# alias sshcressida="ssh bx516@cressida.doc.ic.ac.uk"
-# alias sshbasalt="ssh bx516@basalt.doc.ic.ac.uk"
 
 ######################################################
 # Functions
