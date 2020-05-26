@@ -12,6 +12,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" add all your plugins here
+" Keep Plugin commands between vundle#begin/end.
+
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -21,11 +25,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/syntastic'
-
-" add all your plugins here
-" Keep Plugin commands between vundle#begin/end.
-
-" ...
+Plugin 'nvie/vim-flake8'
+Plugin 'SirVer/ultisnips'    " snippets engine.
+Plugin 'honza/vim-snippets'   " Snippets templates
+Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -165,13 +168,13 @@ set shiftround    " indent/outdent by 4 columns
 set iminsert=0
 
 " PEP 8 indentation
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set fileformat=unix
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+au BufNewFile,BufRead *.h, *.C++
+  \ set tabstop=4
+  \ set softtabstop=4
+  \ set shiftwidth=4
+  \ set textwidth=79
+
 
 au BufNewFile,BufRead *.h, *.C++
     \ set tabstop=2
@@ -303,6 +306,28 @@ nnoremap <Leader>s :SyntasticCheck<CR>
 nnoremap <Leader>r :SyntasticReset<CR>
 nnoremap <Leader>i :SyntasticInfo<CR>
 nnoremap <Leader>m :SyntasticToggleMode<CR>
+
+" ultisnips
+" YouCompleteMe and UltiSnips compatibility.
+let g:ycm_use_ultisnips_completer = 1
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnipsListSnippets="<c-l>"
+
+" remap Youcompleteme keys
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_accept_completion = ['<C-y>']
+
+" Additional YouCompleteMe config.
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 "--------------------
 " Misc configurations

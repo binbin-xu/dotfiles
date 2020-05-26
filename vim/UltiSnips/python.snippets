@@ -1,0 +1,211 @@
+snippet     #! "#!/usr/bin/env python" b
+#!/usr/bin/env python
+${0}
+endsnippet
+
+snippet     shebang "#!/usr/bin/env python" b
+#!/usr/bin/env python
+${0}
+endsnippet
+
+snippet     coding	"# -*- coding ..."
+# -*- coding: utf-8 -*-
+endsnippet
+
+############
+###  edit
+############
+###  definition
+snippet     class	"class Class(...): ..."	b
+class ${1:#:name}(${2:object}):
+	def __init__(self, ${3}):
+		${0:pass}
+endsnippet
+
+snippet     classdoc "class Class(...): doc.'...'"	b
+class ${1:#:name}(${2:object}):
+	"""${3:#:class documentation}"""
+	def __init__(self, ${4}):
+		"""${5:#:__init__ documentation}"""
+		${0:pass}
+endsnippet
+
+snippet     main	"def main(): ..."
+def main():
+	${0:pass}
+endsnippet
+
+snippet     deff	"def function(...): ..." 
+def ${1:#:name}(${2}):
+	${0:pass}
+endsnippet
+
+snippet     deffd	"def function(...):doc" 
+def ${1:#:name}(${2}):
+	"""${3:#:function documentation}"""
+	${0:pass}
+endsnippet
+
+snippet     defm	"def method(...): ..." 
+def ${1:#:name}(${2}):
+	${0:pass}
+endsnippet
+
+snippet     defmd	"def function(...):doc" 
+def ${1:#:name}(${2}):
+	"""${3:#:function documentation}"""
+	${0:pass}
+endsnippet
+
+###  if
+
+snippet     if "if ...: ..." 
+if ${1:#:condition}:
+	${0:pass}
+endsnippet
+
+snippet     elif	"elif ...: ..."
+elif ${1:#:condition}:
+	${0:pass}
+endsnippet
+
+snippet     else	"else: ..."
+else:
+	${0:pass}
+endsnippet
+
+snippet     with_open	"with open ..as:"
+with open(${1:#:file}, '${2:r}') as ${3:f}:
+	${0:pass}
+endsnippet
+
+snippet     with_func	"with {func}({file}) as :"
+with ${1:open}(${2:#:filename, mode}) as ${3:f}:
+	${0:pass}
+endsnippet
+
+snippet     ifmain "if __name__ == '__main__': ..."
+if __name__ == '__main__':
+	${0:main()}
+endsnippet
+
+###  loop
+
+snippet     for		"for ... in ...: ..."
+for ${1:#:value} in ${2:#:list}:
+	${0:pass}
+endsnippet
+
+snippet     while	"while ...: ..."
+while ${1:#:condition}:
+	${0:pass}
+endsnippet
+
+###  filter
+
+snippet     tryexcept	" try: ... except ...: ..."
+try:
+	${1:pass}
+except ${2:#:ExceptionClass}:
+	${3:pass}
+endsnippet
+
+snippet     tryfinally	"try: ... finally: ..."
+try:
+	${1:pass}
+finally:
+	${2:pass}
+endsnippet
+
+
+snippet     filter	"[x for x in {list} if {condition}]"
+[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
+endsnippet
+
+snippet     [if]	"[x for x in {list} if {condition}]"
+[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
+endsnippet
+
+
+###  attr
+
+snippet     getattr	"getattr(..., ...)" w
+getattr(${1:#:obj}, ${2:#:attr})
+endsnippet
+
+snippet     setattr	"setattr(..., ...)" 
+setattr(${1:#:obj}, ${2:#:attr}, ${3:#:value})
+endsnippet
+
+snippet     hasattr	"hasattr(..., ...)" w
+hasattr(${1:#:obj}, ${2:#:attr})
+endsnippet
+
+############
+###  debug
+############
+
+snippet     print
+print(${0:#:TARGET})
+endsnippet
+
+snippet     pdb "import pdb.."
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet     ipdb	"import ipdb.."
+import ipdb; ipdb.set_trace()  # NOQA
+endsnippet
+
+snippet      todo   " # TODO"
+# TODO (${1:binbin})
+endsnippet
+
+snippet      TODO   " # TODO"
+# TODO (${1:binbin})
+endsnippet
+
+snippet     print_debug  " >>>"
+print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+print(${1})
+print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+endsnippet
+
+snippet     hline   "----"
+print("# -----------------------------------------------------------------------------")	
+endsnippet
+
+
+
+############
+###  library
+############
+
+snippet     plt  " import matplotlib.pyplot.." 
+import matplotlib.pyplot as plt
+endsnippet
+
+snippet     osp		"import os.path.."		
+import os.path as osp
+endsnippet
+
+snippet     numpy	"import numpy as.."  
+import numpy as np
+endsnippet
+
+snippet     argparser	"parser = argparse.ArgumentParser()..."  
+parser = argparse.ArgumentParser(
+	formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+)
+parser.add_argument(${1})
+args = parser.parse_args()
+endsnippet
+
+snippet    here	"here = ..."
+here = osp.dirname(osp.abspath(__file__))
+endsnippet
+
+snippet      home	"home = ..."
+home = osp.expanduser('~')
+endsnippet
+

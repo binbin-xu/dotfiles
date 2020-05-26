@@ -1,3 +1,5 @@
 vim/bundle/
 # except
 !vim/bundle/Vundle.vim
+
+vim/UltiSnips/*.snip
