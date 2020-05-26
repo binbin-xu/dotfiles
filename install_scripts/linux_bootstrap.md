@@ -146,21 +146,14 @@ chsh -s /usr/bin/zsh
 ## install dotfiles
 
 ```
-mkdir -p ~/src
-cd ~/src
-git clone git@github.com:anishathalye/dotfiles
-cd dotfiles
-./install
-cd ~/src
-git clone git@github.com:anishathalye/dotfiles-local
-cd dotfiles-local
-git checkout linux-server
-./install
-
-# Dotfiles
+cd ~
 git clone https://github.com/binbin-xu/dotfiles.git
 cd dotfiles
 ./install
+
+# incase youcomepleteme server is down
+cd dotfiles/vim/bundle/youcompleteme
+./install.py
 ```
 
 ## Install fzf
