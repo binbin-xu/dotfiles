@@ -69,6 +69,9 @@ alias gD='git ls-files'
 alias gag='git exec ag'
 #git reset
 grhh='git reset --hard'
+#git log
+glgga='git log --graph --decorate --all'
+
 # tensorboard 
 alias tb='tensorboard --logdir '
 
