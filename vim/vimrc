@@ -242,6 +242,7 @@ let skip_defaults_vim=1
 "---------------------
 " Leader Shortcuts
 "---------------------
+let mapleader=" "       " leader is space
 
 " Edit in same directory as current file
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
