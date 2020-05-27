@@ -55,6 +55,8 @@ alias gst='git status'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
+#clone
+alias gcl='git clone --recurse-submodules'
 # checkout 
 alias gco='git checkout'
 alias gcm='git checkout master'
