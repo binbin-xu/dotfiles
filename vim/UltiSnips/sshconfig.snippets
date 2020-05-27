@@ -1,0 +1,13 @@
+snippet     Host
+Host ${1:name}
+    HostName $1.${2:domain}
+    ${3:User }
+endsnippet
+
+snippet  HostPort "Port Forward"
+Host ${1:name}
+    HostName $1.${2:domain}
+    Port ${3}
+    ${4:User }
+    LocalForward ${5} localhost:${6}
+endsnippet

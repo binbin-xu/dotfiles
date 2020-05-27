@@ -1,0 +1,151 @@
+snippet shebang 
+#!/bin/${1:sh}
+${0}
+endsnippet
+
+snippet tmp
+${1:TMPFILE}=$(mktemp ${2:XXX})
+trap "rm -f '${$1}'" 0               # EXIT
+trap "rm -f '${$1}'; exit 1" 2       # INT
+trap "rm -f '${$1}'; exit 1" 1 15    # HUP TERM
+${0}
+endsnippet
+
+snippet     HERE    "HERE=..."
+HERE=$(realpath $(dirname ${BASH_SOURCE[0]}))
+endsnippet
+
+
+# echo 
+
+snippet     warn
+options     head
+	echo "${0:TARGET}" 1>&2
+
+snippet     abort
+options     head
+	echo "${0:TARGET}" 1>&2
+	exit 1
+
+snippet     func_echo_bold
+echo_bold () {
+    echo -e "\033[1m$*\033[0m"
+}
+endsnippet
+
+snippet     func_echo_warning
+echo_warning () {
+    echo -e "\033[33m$*\033[0m"
+}
+endsnippet
+
+snippet     func_conda_check_installed
+conda_check_installed () {
+    if [ ! $# -eq 1 ]; then
+        echo "usage: \$0 PACKAGE_NAME"
+        return 1
+    fi
+    conda list | awk '{print \$1}' | egrep "^\$1$" &>/dev/null
+}
+endsnippet
+
+
+# case
+
+snippet     case
+case "$${1:{name\}}" in
+    ${2:pattern*})
+        ${0}
+        ;;
+    *)
+        ${3:echo "$$1 Didn't match anything"}
+esac
+endsnippet
+
+snippet if "if ... then (if)" b
+if ${2:[[ ${1:condition} ]]}; then
+	${0:${VISUAL}}
+fi
+endsnippet
+
+
+# OS dependent aliases
+snippet   case_system   "case mac...linux...windows..."
+case "$(uname -s)" in
+    # 'Mac OS X'
+    Darwin)
+        ${1: operation in mac} 
+        ;;
+
+    Linux)
+        ${2: operation in linux} 
+        ;;
+
+    CYGWIN*|MINGW32*|MSYS*)
+        ${3: operation in windows} 
+        ;;
+
+    *)
+        ${4: operation in else} 
+        ;;
+esac
+endsnippet
+
+# OS dependent aliases
+snippet   case_os   "case mac...linux...windows..."
+case "$(uname -s)" in
+    # 'Mac OS X'
+    Darwin)
+        ${1: operation in mac} 
+        ;;
+
+    Linux)
+        ${2: operation in linux} 
+        ;;
+
+    CYGWIN*|MINGW32*|MSYS*)
+        ${3: operation in windows} 
+        ;;
+
+    *)
+        ${4: operation in else} 
+        ;;
+esac
+endsnippet
+
+snippet   if_mac   "if in mac os, do..."
+if [[ "$(uname)" == "Darwin" ]]; then
+	${1: operation in mac} 
+    ;;
+fi
+endsnippet
+
+snippet   if_linux   "if in linux os, do..."
+if [[ "$(uname)" == "Linux" ]]; then
+	${1: operation in Linux} 
+    ;;
+fi
+endsnippet
+
+# Shell dependent Alias 
+snippet   case_shell   "case zsh...bash..."
+case $SHELL in
+*/zsh)
+   ${1: operation in zsh} 
+   ;;
+*/bash)
+   ${2: operation in bash} 
+   ;;
+*)
+   ${3: operation in else} 
+   ;;
+esac
+endsnippet
+
+
+# hostname dependent alias
+snippet   if_hostname   "if hostname ==..."
+if [[ "$(hostname)" == "${1:hostname}" ]]; then 
+    ${2: operation} 
+fi
+endsnippet

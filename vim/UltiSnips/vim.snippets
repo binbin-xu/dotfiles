@@ -1,0 +1,9 @@
+snippet g:loaded "if exists('g:loaded_{plugin-name}')"
+if exists('g:loaded_${1}')
+    finish
+endif
+${0}
+
+let g:loaded_$1 = 1
+endsnippet
+
