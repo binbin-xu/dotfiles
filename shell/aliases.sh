@@ -74,6 +74,8 @@ alias grhh='git reset --hard'
 #git log
 alias glgda='git log --graph --decorate --all'
 
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
 # tensorboard 
 alias tb='tensorboard --logdir '
 
