@@ -92,6 +92,9 @@ Only need to type ssh password once to transfer the public key.  It will be save
   A format is like:
 
 ```
+# Equivalent: alias my_server="ssh -i ~/.id_ed25519 --port 2222 -L 9999:localhost:8888 bx516@cressida.doc.ic.acuk
+# localhost-port:9999  |   remote-port: 8888
+# can be visited from local machine: http://localhost:9999/
 Host cressida
     User bx516
     HostName cressida.doc.ic.acuk
