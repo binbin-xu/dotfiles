@@ -67,6 +67,7 @@ alias gp='git push'
 alias gg='git graph'
 # unalias gd
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gD='git ls-files'
 alias gag='git exec ag'
 #git reset
