@@ -80,3 +80,8 @@
 	commit = yellow bold
 	old = red bold
 	new = green bold
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
