@@ -64,6 +64,7 @@ alias gco='git checkout'
 alias gcm='git checkout master'
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
+alias gf='git fetch'
 alias gl='git pull'
 alias gp='git push'
 alias gg='git graph'
