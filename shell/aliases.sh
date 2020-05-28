@@ -52,8 +52,9 @@ alias gaa='git add --all'
 alias gap='git add --patch'  # patch - interactively select which line of code 
 alias gb='git branch'
 alias gst='git status'
-# commit 
-alias gc='git commit'
+# commit   -v: show what changes we have done
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 #clone
@@ -69,13 +70,17 @@ alias gg='git graph'
 # unalias gd
 alias gd='git diff'
 alias gds='git diff --staged'
+alias gdc='git diff --cached'
 alias gD='git ls-files'
 alias gag='git exec ag'
 #git reset
+alias grh='git reset'  # (HEAD)
 alias grhh='git reset --hard'
+alias grso='git reset --soft origin/$(git_current_branch)'
+alias grho='git reset --hard origin/$(git_current_branch)'
 #git log
 alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias glogs="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --stat"
+alias glogs="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --stat --all"
 
 # tensorboard 
 alias tb='tensorboard --logdir '
