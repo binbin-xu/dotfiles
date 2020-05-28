@@ -49,6 +49,7 @@ alias rsync='rsync -av -P'
 # there are also some alias in git config
 alias ga='git add'
 alias gaa='git add --all'
+alias gap='git add --patch'  # patch - interactively select which line of code 
 alias gb='git branch'
 alias gst='git status'
 # commit 
