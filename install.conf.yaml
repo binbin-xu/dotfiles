@@ -27,7 +27,7 @@
     # git-related files
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
-
+    ~/.diff-so-fancy: git/diff-so-fancy 
 # - create:
     # - ~/.vim/undo-history
 

@@ -44,7 +44,10 @@ if [ -e /usr/local/cuda ]; then
 fi
 
 
-
+# -------------------------------------------
+# path for git 
+# -------------------------------------------
+export PATH="$PATH:$HOME/.diff-so-fancy"
 
 #############################################
 #### machine-specific configuration
