@@ -52,8 +52,9 @@ alias gaa='git add --all'
 alias gap='git add --patch'
 alias gb='git branch'
 alias gst='git status'
-# commit 
-alias gc='git commit'
+# commit   -v: show what changes we have done
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 #clone
