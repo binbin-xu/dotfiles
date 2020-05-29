@@ -74,6 +74,14 @@ alias gds='git diff --staged'
 alias gdc='git diff --cached'
 alias gD='git ls-files'
 alias gag='git exec ag'
+# stash
+alias gsta='git stash' # push , gst=status
+alias gstu='git stash --include-untracked'
+alias gstaa='git stash apply' # like pop, without clearing the stash
+alias gstp='git stash pop' # =apply+clear
+alias gsts='git stash show --text'
+alias gstc='git stash clear'  # remove all
+alias gstd='git stash drop'  # <stash>: remove a specific stash
 #git reset
 alias grh='git reset'  # (HEAD)
 alias grhh='git reset --hard'
