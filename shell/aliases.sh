@@ -95,6 +95,12 @@ alias grho='git reset --hard origin/$(git_current_branch)'
 alias gm='git merge'
 # no fast-forwarding: when merging branches, maintain git topology
 alias gmb='git merge --no-ff'  
+# bisect:
+#alias gbs='git bisect'
+alias gbss='git bisect start'
+alias gbsg='git bisect good'
+alias gbsb='git bisect bad'
+alias gbsr='git bisect reset'
 #git log
 alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glogs="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --stat --all"
