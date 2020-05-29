@@ -69,7 +69,9 @@ alias gbd='git branch -d'  # opposite to the above: delete a branch <- must afte
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
 alias gf='git fetch'
-alias gl='git pull'
+# comment out to try to gup oftern
+# alias gl='git pull'  # = fetch + merge
+alias gup='git pull --rebase' # = fetch+rebase, better than gl in most cases
 alias gp='git push'
 alias gg='git graph'
 # unalias gd
