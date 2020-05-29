@@ -62,6 +62,8 @@ alias gcl='git clone --recurse-submodules'
 # checkout 
 alias gco='git checkout'
 alias gcm='git checkout master'
+alias gcd='git checkout dev'
+alias gcb='git checkout -b'  # create new branch and checkout
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
 alias gf='git fetch'
