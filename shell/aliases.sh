@@ -64,6 +64,7 @@ alias gco='git checkout'
 alias gcm='git checkout master'
 alias gcd='git checkout dev'
 alias gcb='git checkout -b'  # create new branch and checkout
+alias gbd='git branch -d'  # opposite to the above: delete a branch <- must after merging it into its upstream branch
 # Note that gs is also ghostscript
 alias ghostscript="/usr/local/bin/gs"
 alias gf='git fetch'
