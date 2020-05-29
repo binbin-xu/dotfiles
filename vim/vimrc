@@ -327,15 +327,9 @@ nnoremap <Leader>m :SyntasticToggleMode<CR>
 " ultisnips
 " YouCompleteMe and UltiSnips compatibility.
 let g:ycm_use_ultisnips_completer = 1
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-let g:UltiSnipsListSnippets="<c-l>"
-
-" remap Youcompleteme keys
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_key_list_accept_completion = ['<C-y>']
+" use tab and S-tab to select completion, 
+" and <c-j> to activate snippets copletion
+let g:UltiSnipsExpandTrigger = '<c-j>'
 
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
