@@ -56,6 +56,7 @@ alias gst='git status'
 alias gc='git commit -v'
 alias gc!='git commit -v --amend'
 alias gcm='git commit -m'
+alias gca='git commit -av'
 alias gcam='git commit -a -m'
 #clone
 alias gcl='git clone --recurse-submodules'
