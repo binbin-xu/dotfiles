@@ -93,6 +93,12 @@ alias grh='git reset'  # (HEAD)
 alias grhh='git reset --hard'
 alias grso='git reset --soft origin/$(git_current_branch)'
 alias grho='git reset --hard origin/$(git_current_branch)'
+# rebase
+alias grb='git rebase'  # <basebranch> <topicbranch>
+alias grbi='git rebase -i' # interactively  
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue' # use after add the solved confliction
+alias grbo='git rebase --onto' # <basebranch> <exclude> <topicbranch>
 # merge
 alias gm='git merge'
 # no fast-forwarding: when merging branches, maintain git topology
