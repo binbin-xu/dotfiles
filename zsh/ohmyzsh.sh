@@ -12,6 +12,9 @@ source $ZSH/oh-my-zsh.sh
 # Use vim as the editor
 export EDITOR=vim
 export LANG="en_US.UTF-8"
+if [[ "$(uname)" == "Darwin" ]]; then
+    export LSCOLORS="exgxfxdacxDaDaxbadacex"
+fi
 
 # completion
 autoload -Uz compinit && compinit   # zsh-completions
