@@ -340,6 +340,7 @@ case "$(uname -s)" in
         alias mvf='mv "$(pfs)"' # Move current finder selection
         alias ssh_unmount='sudo diskutil unmount force '
         alias ls='/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto'
+        alias o='open'
         ;;
 
     Linux)
@@ -347,6 +348,7 @@ case "$(uname -s)" in
         alias watch_gpu='watch -n 0.1 nvidia-smi'
         alias ssh_unmount='fusermount -u '
         alias ls='ls --color=auto'
+        alias o='xdg-open'
         ;;
 
     CYGWIN*|MINGW32*|MSYS*)
