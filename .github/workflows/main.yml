@@ -15,10 +15,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Update submodules
-      run: |
-        git submodule update --init --recursive
-
     - name: Install dotfiles
       run: |
         bash install
