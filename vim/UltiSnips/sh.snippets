@@ -68,6 +68,17 @@ if ${2:[[ ${1:condition} ]]}; then
 fi
 endsnippet
 
+snippet if_file "if file exist" b
+if test -f "${1:File}"; then
+    ${2:file exist}
+fi
+endsnippet
+
+snippet if_dir "if dir exist" b
+if test -d "${1:Dir}"; then
+    ${2:dir exist}
+fi
+endsnippet
 
 # comments
 snippet comment "###...##"
