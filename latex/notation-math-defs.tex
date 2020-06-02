@@ -1,0 +1,161 @@
+\usepackage{xifthen}
+\usepackage{xparse}
+\usepackage{subdepth}
+\usepackage{leftidx}
+\usepackage{bm}
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%
+%% Paul and Stefan's Math Defs
+%% Operators
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+\newcommand{\diag}{\mathrm{diag}}
+
+%% Matrix shortcuts
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UTIAS Notation
+%%
+
+% Basic bold for letters and symbols
+\DeclareMathAlphabet{\mbf}{OT1}{ptm}{b}{n}
+\newcommand{\mbs}[1]{{\bm{#1}}}
+
+% helper bold symbols
+\newcommand{\mbsbar}[1]{{\overline{\boldsymbol{#1}}}}
+\newcommand{\mbshat}[1]{{\hat{\boldsymbol{#1}}}}
+\newcommand{\mbstilde}[1]{{\tilde{\boldsymbol{#1}}}}
+\newcommand{\mbsvec}[1]{{\underrightarrow{\boldsymbol{#1}}}}
+\newcommand{\mbsdel}[1]{{\delta {\boldsymbol{#1}}}}
+\newcommand{\mbsDel}[1]{{\delta {\boldsymbol{#1}}}}
+\newcommand{\mbsdot}[1]{{\dot {\boldsymbol{#1}}}}
+\newcommand{\mbsddot}[1]{{\ddot {\boldsymbol{#1}}}}
+\newcommand{\mbc}[1]{{{\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcbar}[1]{{\overline{\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbchat}[1]{{\hat{\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcvec}[1]{{\underrightarrow{\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcdel}[1]{{\delta {\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcDel}[1]{{\delta {\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcdot}[1]{{\dot {\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbcddot}[1]{{\ddot {\boldsymbol{\mathcal{#1}}}}}
+\newcommand{\mbfbar}[1]{{\overline{\mbf{#1}}}}
+\newcommand{\mbfhat}[1]{{\hat{\mbf{#1}}}}
+\newcommand{\mbftilde}[1]{{\tilde{\mbf{#1}}}}
+\newcommand{\mbfvec}[1]{{\underrightarrow{\mbf{#1}}}}
+\newcommand{\mbfdel}[1]{{\delta{\mbf{#1}}}}
+\newcommand{\mbfDel}[1]{{\delta{\mbf{#1}}}}
+\newcommand{\mbfdot}[1]{{\dot{\mbf{#1}}}}
+\newcommand{\mbfddot}[1]{{\ddot{\mbf{#1}}}}
+
+% A coordinate frame definintion
+% edit lestefan: added \protect to make command suitable for usage in captions.
+\newcommand{\cframe}[1]{{\smash{\protect\underrightarrow{\mathcal{F}}_{#1}}}}
+
+%new notation for homogeneous coordinates:
+\DeclareMathAlphabet{\mathbfit}{OML}{cmm}{b}{it}
+\newcommand{\homo}[1]{{\mathbfit{#1}}}
+\newcommand{\mbfhbar}[1]{{\overline{\homo{#1}}}}
+\newcommand{\mbfhhat}[1]{{\hat{\homo{#1}}}}
+\newcommand{\mbfhtilde}[1]{{\tilde{\homo{#1}}}}
+\newcommand{\mbfhdel}[1]{{\delta{\homo{#1}}}}
+\newcommand{\mbfhdot}[1]{{\dot{\homo{#1}}}}
+\newcommand{\mbfhddot}[1]{{\ddot{\homo{#1}}}}
+\newcommand{\mbfh}[1]{{\homo{#1}}}
+
+% Vectors
+\renewcommand{\Vec}[1]{{\underrightarrow{#1}}}
+
+% Operators
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+
+% Quaternions
+\newcommand{\qc}[1]{\left[{#1}\right]^+}
+\newcommand{\qo}[1]{\left[{#1}\right]^\oplus}
+\newcommand{\qi}[1]{{#1}^{\scalebox{0.5}{$-1$}}}
+\def\ep{\epsilon}
+\def\la{\lambda}
+
+% crossmx
+\newcommand{\crossmx}[1]{\left[{#1}\right]^\times}
+
+% translation with vectors
+\newcommand{\trans}[3]{\leftidx{_{#1}}{\mbf r}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+
+% physical entities attached to and relating to coordinate frames
+\newcommand{\pos}[2]{\leftidx{_{#1}}{ \mbf r}{_{#2}}} % position
+\newcommand{\postilde}[2]{\leftidx{_{#1}}{\mbftilde r}{_{#2}}} % position
+\newcommand{\posbar}[2]{\leftidx{_{#1}}{\mbfbar r}{_{#2}}} % position
+\newcommand{\poshat}[2]{\leftidx{_{#1}}{\mbfhat r}{_{#2}}} % position
+\newcommand{\posh}[2]{\leftidx{_{#1}}{\mbfh r}{_{#2}}} % position in homogeneous representation
+\newcommand{\poshtilde}[2]{\leftidx{_{#1}}{\mbfhtilde r}{_{#2}}} % position in homogeneous representation
+\newcommand{\poshbar}[2]{\leftidx{_{#1}}{\mbfhbar r}{_{#2}}} % position in homogeneous representation
+\newcommand{\poshhat}[2]{\leftidx{_{#1}}{\mbfhhaz r}{_{#2}}} % position in homogeneous representation
+\newcommand{\posdot}[2]{\leftidx{_{#1}}{\mbfdot r}{_{#2}}} % position
+
+\newcommand{\lm}[1]{\leftidx{_{#1}}{\mbf l}{}} % landmark
+\newcommand{\lmbar}[1]{\leftidx{_{#1}}{\mbfbar l}{}} % landmark
+\newcommand{\lmhat}[1]{\leftidx{_{#1}}{\mbfhat l}{}} % landmark
+\newcommand{\lmh}[1]{\leftidx{_{#1}}{\mbfh l}{}} % landmark in homogeneous representation
+\newcommand{\lmhbar}[1]{\leftidx{_{#1}}{\mbfhbar l}{}} % landmark in homogeneous representation
+\newcommand{\lmhhat}[1]{\leftidx{_{#1}}{\mbfhhaz l}{}} % landmark in homogeneous representation
+
+\newcommand{\vel}[3]{\leftidx{_{#1}}{\mbf v}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+\newcommand{\veltilde}[3]{\leftidx{_{#1}}{\mbftilde v}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+\newcommand{\velbar}[3]{\leftidx{_{#1}}{\mbfbar v}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+\newcommand{\velhat}[3]{\leftidx{_{#1}}{\mbfhat v}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+\newcommand{\veldot}[3]{\leftidx{_{#1}}{\mbfdot v}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % velocity
+
+\newcommand{\wind}[1]{\leftidx{_{#1}}{\mbf d}} % velocity
+\newcommand{\windtilde}[1]{\leftidx{_{#1}}{\mbftilde d}} % velocity
+\newcommand{\windbar}[1]{\leftidx{_{#1}}{\mbfbar d}} % velocity
+\newcommand{\windhat}[1]{\leftidx{_{#1}}{\mbfhat d}} % velocity
+\newcommand{\winddot}[1]{\leftidx{_{#1}}{\mbfdot d}} % velocity
+
+\newcommand{\myvec}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbf #1}{}} % vector
+\newcommand{\myvectilde}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbftilde #1}{}} % vector
+\newcommand{\myvecbar}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbfbar #1}{}} % vector
+\newcommand{\myvechat}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbfhat #1}{}} % vector
+\newcommand{\myvecdot}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbfdot #1}{}} % vector
+\newcommand{\myvecs}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbs #1}{}} % vector
+\newcommand{\myvecstilde}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbstilde #1}{}} % vector
+\newcommand{\myvecsbar}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbsbar #1}{}} % vector
+\newcommand{\myvecshat}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbshat #1}{}} % vector
+\newcommand{\myvecsdot}[2]{\leftidx{_{#2}\hspace{-1pt}}{\mbsdot #1}{}} % vector
+
+\newcommand{\acc}[3]{\leftidx{_{#1}}{\mbf a}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % acceleration
+\newcommand{\acctilde}[3]{\leftidx{_{#1}}{\mbftilde a}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % acceleration
+\newcommand{\accbar}[3]{\leftidx{_{#1}}{\mbfbar a}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % acceleration
+
+\newcommand{\rotvel}[3]{\leftidx{_{#1}}{\mbs \omega}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % rotational velocity
+\newcommand{\rotveltilde}[3]{\leftidx{_{#1}}{\mbstilde \omega}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % rotational velocity
+\newcommand{\rotvelbar}[3]{\leftidx{_{#1}}{\mbsbar \omega}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % rotational velocity
+\newcommand{\rotvelhat}[3]{\leftidx{_{#1}}{\mbshat \omega}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % rotational velocity
+\newcommand{\rotveldot}[3]{\leftidx{_{#1}}{\mbsdot \omega}{\IfValueTF{#2}{_{#2#3\hspace{2pt}}}{}}} % rotational velocity derivative
+
+\newcommand{\C}[2]{\leftidx{}{\mbf C}{_{#1#2\hspace{2pt}}}} % rotation matrix
+\newcommand{\Ctilde}[2]{\leftidx{}{\mbftilde C}{_{#1#2\hspace{2pt}}}} % rotation matrix
+\newcommand{\Cdot}[2]{\leftidx{}{\mbfdot C}{_{#1#2\hspace{2pt}}}} % rotation matrix time derivative
+\newcommand{\Cbar}[2]{\leftidx{}{\mbfbar C}{_{#1#2\hspace{2pt}}}} % rotation matrix
+\newcommand{\T}[2]{\leftidx{}{\mbfh T}{_{#1#2\hspace{2pt}}}} % homogeneous transformation matrix
+\newcommand{\Ttilde}[2]{\leftidx{}{\mbfhtilde T}{_{#1#2\hspace{2pt}}}} % homogeneous transformation matrix
+\newcommand{\Tbar}[2]{\leftidx{}{\mbfhbar T}{_{#1#2\hspace{2pt}}}} % homogeneous transformation matrix
+\newcommand{\q}[2]{\leftidx{}{\mbf q}{_{#1#2\hspace{2pt}}}} % quaternion of rotation
+\newcommand{\qtilde}[2]{\leftidx{}{\mbfbar q}{_{#1#2\hspace{2pt}}}} % quaternion of rotation
+\newcommand{\qbar}[2]{\leftidx{}{\mbfbar q}{_{#1#2\hspace{2pt}}}} % quaternion of rotation
+\newcommand{\qhat}[2]{\leftidx{}{\mbfhat q}{_{#1#2\hspace{2pt}}}} % quaternion of rotation
+\newcommand{\qdot}[2]{\leftidx{}{\mbfdot q}{_{#1#2\hspace{2pt}}}} % quaternion of rotation
+
+\newenvironment{notation}{\vspace{3mm}\begin{tabular}[t]{r
+			@{\;\;\;:\;\;\;} p{\hsize}}}{\end{tabular}\vspace{3mm}}
+\newcommand{\nitem}[2]{\raggedleft $\displaystyle {#1}$ & #2\\}
+
+\newcommand{\sinc}{{\mathrm{sinc}}}
+
+\newcommand{\renderImage}[2]{\leftidx{_{#1}}{ \mbf I}{_{#2}}} % Image
+
+%\DeclareMathOperator*{\argmin}{arg\,min}
+%\DeclareMathOperator*{\argax}{arg\,max}

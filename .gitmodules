@@ -1,6 +1,3 @@
-[submodule "latex/notation/notations_and_definitions"]
-	path = latex/notation/notations_and_definitions
-	url = https://binbinxu@bitbucket.org/binbinxu/notation.git
 [submodule "latex/robotvisionbib"]
 	path = latex/robotvisionbib
 	url = https://bitbucket.org/andysan29/robotvisiontex.git
