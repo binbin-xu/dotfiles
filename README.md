@@ -1,4 +1,4 @@
-# Binbin Xu's dotfiles [![build](https://github.com/binbin-xu/dotfiles/workflows/build/badge.svg)]
+# Binbin Xu's dotfiles [[![build](https://github.com/binbin-xu/dotfiles/workflows/build/badge.svg)](https://github.com/binbin-xu/dotfiles/actions)]
 
 Usage:
 
