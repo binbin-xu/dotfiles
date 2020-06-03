@@ -196,3 +196,8 @@ git checkout gpu
 * [cuDNN](https://developer.nvidia.com/rdp/cudnn-download)
     * Accelerated Computing Developer Program membership required
     * Copy files to `/usr/local/cuda`
+
+## keyboard remapping
+* Unify mac & normal keyboard: and use capslock more often:
+* Install gnome-tweak-tool: `sudo apt-get install gnome-tweak-tool`
+* Use `tweak tool` > `typing` > `Ctrl key position` > `Caps Lock as Ctrl`
