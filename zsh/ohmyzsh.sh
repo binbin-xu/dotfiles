@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Use vim as the editor
 export EDITOR=vim
-export LANG="en_US.UTF-8"
+export LANG="en_GB.UTF-8"  # for server usage
 if [[ "$(uname)" == "Darwin" ]]; then
     export LSCOLORS="exgxfxdacxDaDaxbadacex"
 fi
