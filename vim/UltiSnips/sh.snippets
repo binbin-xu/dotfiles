@@ -21,16 +21,30 @@ endsnippet
 snippet     warn
 options     head
 	echo "${0:TARGET}" 1>&2
+endsnippet
 
 snippet     abort
 options     head
 	echo "${0:TARGET}" 1>&2
 	exit 1
+endsnippet
 
 snippet     func_echo_bold
 echo_bold () {
     echo -e "\033[1m$*\033[0m"
 }
+endsnippet
+
+snippet     func_echo_green
+echo_green () {
+    echo -e "\033[92m$*\033[0m"
+} 
+endsnippet
+
+snippet     func_echo_blue
+echo_blue () {
+    echo -e "\033[94m$*\033[0m"
+} 
 endsnippet
 
 snippet     func_echo_warning
