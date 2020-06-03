@@ -201,3 +201,7 @@ git checkout gpu
 * Unify mac & normal keyboard: and use capslock more often:
 * Install gnome-tweak-tool: `sudo apt-get install gnome-tweak-tool`
 * Use `tweak tool` > `typing` > `Ctrl key position` > `Caps Lock as Ctrl`
+
+## Install Onedrive
+* https://github.com/skilion/onedrive:
+* Use crontab to sync on time
