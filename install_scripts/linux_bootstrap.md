@@ -203,3 +203,7 @@ git checkout gpu
 ## Install Onedrive
 * https://github.com/skilion/onedrive:
 * Use crontab to sync on time
+
+## DNS encryptions
+
+* https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Installation-linux
