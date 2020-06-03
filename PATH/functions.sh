@@ -28,3 +28,5 @@ there="$HOME/.shell.here"
 there() {
     cd "$(readlink "${there}")"
 }
+
+alias echo_path="echo $PATH | tr -s ':' '\n'"
