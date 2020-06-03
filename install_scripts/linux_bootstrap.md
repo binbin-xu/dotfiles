@@ -158,9 +158,7 @@ git clone git@github.com:binbin-xu/dotfiles.git
 cd dotfiles
 ./install
 
-# in vim
-:PluginInstall
-# incase youcomepleteme server is down
+# in case youcomepleteme server is down
 cd dotfiles/vim/bundle/youcompleteme
 ./install.py
 ```
