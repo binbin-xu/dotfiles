@@ -130,10 +130,13 @@ Host *.doc.ic.ac.uk
 ```
 sudo apt update
 sudo apt install \
-    curl git mercurial vim htop iotop axel aria2 silversearcher-ag \
-    build-essential pkg-config \
-    autojump python-pip python-virtualenv python-dev \
-    vnstat lm-sensors rsync zsh tmux
+	apt-transport-https ca-certificates software-properties-common \
+    curl git vim htop rsync zsh tmux iotop \
+    build-essential pkg-config cmake \
+    python-pip python-virtualenv python-dev python3 python3-venv \
+    axel aria2 silversearcher-ag \
+    autojump vnstat lm-sensors neofetch \
+    vnstat vnstati # network monitoring
 ```
 
 ### scientific computing
