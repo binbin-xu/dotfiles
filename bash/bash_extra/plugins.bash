@@ -9,3 +9,7 @@ if [[ "$(tput colors)" == "256" ]]; then
         export LSCOLORS="Gxfxcxdxbxegedabagacad"
     fi
 fi
+
+# direnv
+eval "$(direnv hook bash)"
+

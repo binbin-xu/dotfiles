@@ -1,6 +1,9 @@
 # use zsh-autoenv
 source ~/.zsh/zsh-autoenv/autoenv.zsh
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # use fzf for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

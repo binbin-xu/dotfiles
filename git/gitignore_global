@@ -51,6 +51,7 @@ Icon?
 .anaconda3/
 .autoenv.zsh
 .autoenv_leave.zsh
+.envrc
 
 a.*
 nohup.out

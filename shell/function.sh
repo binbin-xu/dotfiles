@@ -178,9 +178,9 @@ function auto() {
         sed 's,</\?b>,,g'
 }
 
-init-autoenv () {
-  vim .autoenv.zsh
-  vim .autoenv_leave.zsh
+init_direnv(){
+    vim .envrc
+    direnv allow
 }
 
 extract() {
