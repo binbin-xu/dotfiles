@@ -1,0 +1,13 @@
+snippet init_conda "auto source"
+#!/bin/bash
+# vim: set ft=bash
+
+HERE=$(realpath $(dirname ${BASH_SOURCE[0]}))
+
+setup() {
+  source $HERE/.anaconda3/bin/activate
+  echo "conda environment activated"
+}
+
+setup
+endsnippet
