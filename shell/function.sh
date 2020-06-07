@@ -195,6 +195,9 @@ extract() {
         exit 1
     }
 
+    echo_green () {
+        echo -e "\033[92m$*\033[0m"
+    } 
     # MAIN
     if [ "$#" -ne 1 ]; then
     show_usage
@@ -203,9 +206,9 @@ extract() {
 
     echo "unpacking archive [$1]"
 
-    case "$1" in
-        *.tar.gz) tar -xzf "$1" ;;
-        *.tar.xz) tar -xzf "$1" ;;
+    case $1 in
+        *.tar.gz) tar -xvf "$1" ;;
+        *.tar.xz) tar -xvf "$1" ;;
         *.gz) tar -xzvf "$1";;
         *.tgz) tar -xzvf "$1";;
         *.xz) tar -xzvf "$1";;
@@ -213,8 +216,8 @@ extract() {
         *.tar) tar -xvf "$1";;
         *.rar) unrar e "$1";;
         *.zip) unzip "$1";;
-        :) echo_error "unsupported version yet";;
+        *) echo_error "unsupported version yet";;
     esac
 
-    echo "Unpacking $1 done! :)"
+    echo_green "Unpacking $1 done! :)"
 }
