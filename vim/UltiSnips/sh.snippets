@@ -18,15 +18,26 @@ endsnippet
 
 # echo 
 
-snippet     warn
-options     head
-	echo "${0:TARGET}" 1>&2
+snippet  warn  "echo warn"
+echo "${0:TARGET}" 1>&2
 endsnippet
 
-snippet     abort
-options     head
-	echo "${0:TARGET}" 1>&2
+snippet  func_echo_warning
+echo_warning () {
+    echo -e "\033[33mWarning: $*\033[0m"
+}
+endsnippet
+
+snippet     abort "echo abort"
+echo "${0:TARGET}" 1>&2
+exit 1
+endsnippet
+
+snippet  func_echo_error
+echo_error () {
+    echo -e "\033[31mError: $*\033[0m"
 	exit 1
+}
 endsnippet
 
 snippet     func_echo_bold
@@ -45,12 +56,6 @@ snippet     func_echo_blue
 echo_blue () {
     echo -e "\033[94m$*\033[0m"
 } 
-endsnippet
-
-snippet     func_echo_warning
-echo_warning () {
-    echo -e "\033[33m$*\033[0m"
-}
 endsnippet
 
 snippet     func_conda_check_installed
