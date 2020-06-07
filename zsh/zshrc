@@ -20,6 +20,9 @@ source ~/.shell/external.sh
 # Aliases
 source ~/.shell/aliases.sh
 
+# functions
+source ~/.shell/function.sh
+
 # oh-my-zsh settings
 source ~/.zsh/setopt.zsh
 source ~/.zsh/ohmyzsh.sh

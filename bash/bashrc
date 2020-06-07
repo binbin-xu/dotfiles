@@ -23,6 +23,9 @@ source ~/.shell/external.sh
 # Aliases
 source ~/.shell/aliases.sh
 
+# functions
+source ~/.shell/function.sh
+
 # Custom prompt
 source ~/.bash/prompt.bash
 
