@@ -1,5 +1,6 @@
 # pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+# comment it out due to conda confliction
+#export PIP_REQUIRE_VIRTUALENV=true
 
 # Cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
