@@ -18,5 +18,5 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
 echo_green "==> Install vim plugins"
-vim +PlugInstall +qall #> /dev/null
+vim +PluginInstall +qall &> /dev/null 
 echo_green "Done!"
