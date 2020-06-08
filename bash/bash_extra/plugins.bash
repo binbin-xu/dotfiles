@@ -11,5 +11,6 @@ if [[ "$(tput colors)" == "256" ]]; then
 fi
 
 # direnv
-eval "$(direnv hook bash)"
-
+if [ -e $HOME/.local/bin/direnv ]; then
+    eval "$(direnv hook bash)"
+fi
