@@ -1,0 +1,34 @@
+snippet init_autoenv_conda "conda activate"
+#!/usr/bin/env zsh
+
+setup(){
+    source $HERE/.anaconda3/bin/activate
+}
+HERE=${0:a:h}
+setup
+endsnippet
+
+
+snippet init_autoenv_virtualenv "source virtualenv"
+#!/usr/bin/env zsh
+
+setup(){
+    source ${1:virtualenv_name}/bin/activate
+}
+HERE=${0:a:h}
+setup
+endsnippet
+
+
+snippet init_autoenv_leave_conda "conda deactivate"
+#!/usr/bin/env zsh
+conda deactivate
+endsnippet
+
+
+snippet init_autoenv_leave_virtualenv "deactivate"
+#!/usr/bin/env zsh
+deactivate
+endsnippet
+
+
