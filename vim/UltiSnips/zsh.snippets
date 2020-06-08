@@ -13,7 +13,7 @@ snippet init_autoenv_virtualenv "source virtualenv"
 #!/usr/bin/env zsh
 
 setup(){
-    source ${1:virtualenv_name}/bin/activate
+    source $HERE/${1:virtualenv_name}/bin/activate
 }
 HERE=${0:a:h}
 setup
