@@ -120,6 +120,11 @@ else
   set clipboard=unnamed
 endif
 
+" avoid indentation when pasting from systm clipboard
+nnoremap <F2> :set invpaste paste? <CR>
+set pastetoggle=<F2>
+set showmode
+
 " Enhance command-line completion
 set wildmenu
 set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz
