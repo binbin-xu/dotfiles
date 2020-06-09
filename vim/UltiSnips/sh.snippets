@@ -15,6 +15,14 @@ snippet     HERE    "HERE=..."
 HERE=$(realpath $(dirname ${BASH_SOURCE[0]}))
 endsnippet
 
+snippet make_tmp_dir "make a temporary dir"
+TMPDIR=$(mktemp -d)
+cd $TMPDIR
+
+${1:DO}
+
+rm -rf $TMPDIR
+endsnippet
 
 # echo 
 
