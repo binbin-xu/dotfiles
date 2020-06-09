@@ -29,17 +29,17 @@ source .anaconda3/bin/activate
 
 echo_bold "==> Installing the right pip and dependencies for the fresh python"
 pip install --upgrade pip 
-conda install python=3.6  # meet tensorflow requirements
+conda install python #=3.6  # meet tensorflow requirements
 conda install ipython
 
 echo_bold "==> Installing computer vision-related packages"
-pip install \
-  jupyter \
-  cython\
-  numpy\
-  matplotlib\
-  opencv-python \
-  opencv-contrib-python \
+#pip install \
+#  jupyter \
+#  cython\
+#  numpy\
+#  matplotlib\
+#  opencv-python \
+#  opencv-contrib-python \
   # plyfile \
   # pandas \
   # requests \
@@ -56,8 +56,9 @@ echo_bold "==> Installing deep learning-related packages"
 # conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 # pip install tensorboard
 
-# echo_bold "==> Installing requirements"
-# pip install -r setup/requirements.txt
+echo_bold "==> Installing requirements"
+# pip install -r install/requirements.txt
+# conda env update --file install/environment.yml --prune
 
 # pip install -e .
 
