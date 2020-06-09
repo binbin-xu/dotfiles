@@ -3,3 +3,7 @@ vim/bundle/
 !vim/bundle/Vundle.vim
 
 vim/UltiSnips/*.snip
+
+tmux/plugins/
+!tmux/plugins/tpm
+tmux/resurrect/*
