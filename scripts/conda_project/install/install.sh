@@ -32,7 +32,7 @@ pip install --upgrade pip
 conda install python #=3.6  # meet tensorflow requirements
 conda install ipython
 
-echo_bold "==> Installing computer vision-related packages"
+#echo_bold "==> Installing computer vision-related packages"
 #pip install \
 #  jupyter \
 #  cython\
@@ -49,16 +49,15 @@ echo_bold "==> Installing computer vision-related packages"
   # sklearn \
   # pyyaml \
   # tqdm \
-  # transforms3d \
 
-echo_bold "==> Installing deep learning-related packages"
+#echo_bold "==> Installing deep learning-related packages"
 # pip install future 
 # conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 # pip install tensorboard
 
 echo_bold "==> Installing requirements"
 # pip install -r install/requirements.txt
-# conda env update --file install/environment.yml --prune
+# conda env update --file install/environment.yml #--prune
 
 # pip install -e .
 
