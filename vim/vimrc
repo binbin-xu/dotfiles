@@ -120,7 +120,7 @@ else
   set clipboard=unnamed
 endif
 
-" avoid indentation when pasting from systm clipboard
+" avoid indentation when pasting from systm clipboard, F2 to toggle in/out
 nnoremap <F2> :set invpaste paste? <CR>
 set pastetoggle=<F2>
 set showmode
