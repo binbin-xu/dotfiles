@@ -137,6 +137,8 @@ alias ca='conda activate'
 alias sa='source activate'
 alias cod='conda deactivate'  # different  from cd 
 alias sd="source deactivate"
+# path
+alias echo_path="echo '$PATH' | tr ':' '\n'"
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
 alias peek='tee >(cat 1>&2)'
