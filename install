@@ -17,6 +17,10 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
+echo_green "==> Install tmux plugins"
+~/.tmux/plugins/tpm/bin/install_plugins &> /dev/null  
+
 echo_green "==> Install vim plugins"
 vim +PluginInstall +qall &> /dev/null 
+
 echo_green "Done!"
