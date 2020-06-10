@@ -128,11 +128,11 @@ case "$(uname -s)" in
         ;;
 
     CYGWIN*|MINGW32*|MSYS*)
-        ${3: operation in windows} 
+        echo "unsupported platform"
         ;;
 
     *)
-        ${4: operation in else} 
+        echo "unsupported"
         ;;
 esac
 endsnippet
