@@ -134,9 +134,13 @@ alias py3='python3 '
 
 #conda 
 alias ca='conda activate'
+alias coa='.anaconda/bin/activate'
 alias sa='source activate'
 alias cod='conda deactivate'  # different  from cd 
 alias sd="source deactivate"
+alias coel='conda info --envs'
+alias coer='conda env remove --name'
+
 # path
 alias echo_path="echo '$PATH' | tr ':' '\n'"
 
