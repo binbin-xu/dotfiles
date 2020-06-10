@@ -1,21 +1,19 @@
-#user bin
-export PATH="$PATH:$HOME/bin"
+source ~/.PATH/functions.sh
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 if [ -e ~/.npm-packages ]; then
-  export PATH="$HOME/.npm-packages/bin:$PATH"
+  path_prepend $HOME/.npm-packages/bin
 fi
 
 #brew sbin
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
+path_prepend /usr/local/bin
+path_prepend /usr/local/sbin
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 
+#user bin
+path_prepend $HOME/bin
 
 
 # ------------------
@@ -29,7 +27,7 @@ export CFLAGS=-I/usr/include
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
 if [ -e /usr/local/cuda ]; then
   export CUDA_PATH=/usr/local/cuda
-  export PATH=$CUDA_PATH/bin:$PATH
+  path_prepend $CUDA_PATH/bin
   export CPATH=$CUDA_PATH/include:$CPATH
   export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$CUDA_PATH/lib:$LD_LIBRARY_PATH
   export CFLAGS=-I$CUDA_PATH/include
@@ -47,7 +45,7 @@ fi
 # -------------------------------------------
 # path for git 
 # -------------------------------------------
-export PATH="$PATH:$HOME/.diff-so-fancy"
+path_append $HOME/.diff-so-fancy
 
 #############################################
 #### machine-specific configuration
