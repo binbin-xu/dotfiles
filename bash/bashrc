@@ -20,9 +20,6 @@ source ~/.shell/bootstrap.sh
 # External settings
 source ~/.shell/external.sh
 
-# Aliases
-source ~/.shell/aliases.sh
-
 # functions
 source ~/.shell/function.sh
 
@@ -44,3 +41,6 @@ fi
 if [ -f ~/.bashrc_local_after ]; then
     source ~/.bashrc_local_after
 fi
+
+# Aliases
+source ~/.shell/aliases.sh

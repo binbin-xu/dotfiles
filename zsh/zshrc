@@ -17,9 +17,6 @@ source ~/.shell/bootstrap.sh
 # External settings
 source ~/.shell/external.sh
 
-# Aliases
-source ~/.shell/aliases.sh
-
 # functions
 source ~/.shell/function.sh
 
@@ -50,6 +47,9 @@ fi
 if [ -f ~/.zshrc_local_after ]; then
     source ~/.zshrc_local_after
 fi
+
+# Aliases
+source ~/.shell/aliases.sh
 
 # theme powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
