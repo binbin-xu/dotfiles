@@ -29,7 +29,7 @@ source .anaconda3/bin/activate
 
 echo_bold "==> Installing the right pip and dependencies for the fresh python"
 pip install --upgrade pip 
-conda install python #=3.6  # meet tensorflow requirements
+conda install python #=3.7  # meet tensorflow requirements
 conda install ipython
 
 #echo_bold "==> Installing computer vision-related packages"
