@@ -29,8 +29,8 @@ source .anaconda3/bin/activate
 
 echo_bold "==> Installing the right pip and dependencies for the fresh python"
 pip install --upgrade pip 
-conda install python #=3.7  # meet tensorflow requirements
-conda install ipython
+conda install -y python #=3.7  # meet tensorflow requirements
+#conda install -y ipython
 
 #echo_bold "==> Installing computer vision-related packages"
 #pip install \
@@ -55,8 +55,10 @@ conda install ipython
 # conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 # pip install tensorboard
 
-echo_bold "==> Installing requirements"
+# echo_bold "==> Installing requirements"
 # pip install -r install/requirements.txt
+
+# echo_bold "==> Installing conda environment"
 # conda env update --file install/environment.yml #--prune
 
 # pip install -e .
