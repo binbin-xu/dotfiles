@@ -28,6 +28,8 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.diff-so-fancy: git/diff-so-fancy 
+    # aria2
+    ~/.aria2/aria2.conf: aria2.conf
 # - create:
     # - ~/.vim/undo-history
 
