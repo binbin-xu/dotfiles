@@ -10,6 +10,7 @@
     # shell-related
     ~/.PATH: PATH
     ~/.shell: shell 
+    ~/.profile: shell/profile
     ~/.bash: bash/bash_extra
     ~/.bashrc: bash/bashrc
     ~/.bash_profile: bash/bash_profile
