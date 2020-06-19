@@ -43,6 +43,10 @@ alias rm='rm -i'
 alias mkdir="mkdir -p"     # -p make parent dirs as needed
 alias df="df -h"           # -h prints human readable format
 alias du='du -hs'
+
+# downloads
+alias wget='wget -c'
+alias curl='curl -C'
 alias rsync='rsync -av -P'
 
 # git related aliases
