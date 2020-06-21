@@ -83,6 +83,16 @@ conda_check_installed () {
 }
 endsnippet
 
+snippet if_ubuntu_version
+if [ "$(lsb_release -sc)" = "bionic" ]; then
+	${0:18.04}
+elif [ "$(lsb_release -sc)" = "xenial" ]; then
+	${1:16.04}
+else
+  echo "[$0] Unsupported OS: $(uname), $(lsb_release -sc)"
+  exit 1
+fi
+endsnippet
 
 # case
 
