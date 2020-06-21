@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import argparse
+
+import trimesh
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument('filenames', nargs='+', help='Mesh files')
+    args = parser.parse_args()
+
+    geometries = []
+    for filename in args.filenames:
+        geo = trimesh.load(filename)
+        geometries.append(geo)
+    trimesh.Scene(geometries).show()
+
+
+if __name__ == '__main__':
+    main()
