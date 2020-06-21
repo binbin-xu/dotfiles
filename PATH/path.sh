@@ -11,9 +11,8 @@ path_prepend /usr/local/sbin
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
-#user bin
-path_prepend $HOME/bin
+# custom bin scripts
+path_prepend $HOME/.custom_bin
 
 
 # ------------------

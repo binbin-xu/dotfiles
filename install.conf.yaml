@@ -17,6 +17,8 @@
     ~/.zshrc: zsh/zshrc
     ~/.zsh: zsh
     ~/.oh-my-zsh: zsh/ohmyzsh
+    # custom bin scripts
+    ~/.custom_bin: bin
     # tmux-related
     ~/.tmux: tmux
     ~/.tmux.conf: tmux/tmux.conf
