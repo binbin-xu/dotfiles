@@ -135,7 +135,9 @@ alias jn-b="jupyter notebook --no-browser"
 
 # python
 alias py3='python3 '
-
+alias pip='python3 -m pip'
+alias py_path='python -c "import sys; print(sys.path)"'
+alias py3_path='python3 -c "import sys; print(sys.path)"'
 #conda 
 alias ca='conda activate'
 alias coa='.anaconda/bin/activate'
