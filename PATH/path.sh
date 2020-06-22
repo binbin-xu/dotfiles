@@ -19,25 +19,27 @@ path_prepend $HOME/.custom_bin
 # cuda configuration
 # ------------------
 
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 export LIBRARY_PATH=/usr/local/lib:/usr/lib:$LIBRARY_PATH
 export CPATH=/usr/include:$CPATH
 export CFLAGS=-I/usr/include
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
 if [ -e /usr/local/cuda ]; then
-  export CUDA_PATH=/usr/local/cuda
-  path_prepend $CUDA_PATH/bin
-  export CPATH=$CUDA_PATH/include:$CPATH
-  export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$CUDA_PATH/lib:$LD_LIBRARY_PATH
-  export CFLAGS=-I$CUDA_PATH/include
-  export LDFLAGS="-L$CUDA_PATH/lib64 -L$CUDA_PATH/lib"
-  # cudnn
-  if [ "$CUDNN_PATH" = "" ]; then
-    export CUDNN_PATH=~/.cudnn/active/cuda
-  fi
-  export LD_LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
-  export CPATH=~/.cudnn/active/cuda/include:$CPATH
-  export LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LIBRARY_PATH
+    export CUDA_PATH=/usr/local/cuda
+    path_prepend $CUDA_PATH/bin
+    export CPATH=$CUDA_PATH/include:$CPATH
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_PATH/lib64:$CUDA_PATH/lib
+    export CFLAGS=-I$CUDA_PATH/include
+    export LDFLAGS="-L$CUDA_PATH/lib64 -L$CUDA_PATH/lib"
+    # cudnn
+    if [ -e ~/.cudnn/active/cuda ]; then
+        if [ "$CUDNN_PATH" = "" ]; then
+            export CUDNN_PATH=~/.cudnn/active/cuda
+        fi
+        export LD_LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
+        export CPATH=~/.cudnn/active/cuda/include:$CPATH
+        export LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LIBRARY_PATH
+    fi
 fi
 
 
