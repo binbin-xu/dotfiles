@@ -24,7 +24,7 @@ conda_check_installed () {
 }
 
 pip_install () {
-  pip install --progress-bar off $@
+ python3 -m pip install --progress-bar off $@
 }
 
 conda_install () {
