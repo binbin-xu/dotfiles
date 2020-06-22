@@ -64,10 +64,21 @@ alias gca='git commit -av'
 alias gcam='git commit -a -m'
 #clone
 alias gcl='git clone --recurse-submodules'
+function gcd {
+  local dir
+  if [[ $# -eq 2 ]]; then
+    gcl -- $1 $2 || return
+    dir=$2
+  else
+    gcl -- $1 || return
+    dir=$(basename "$1" .git)
+  fi
+  builtin cd $dir
+}
 # checkout 
 alias gco='git checkout'
 alias gcm='git checkout master'
-alias gcd='git checkout dev'
+#alias gcd='git checkout dev'
 alias gcb='git checkout -b'  # create new branch and checkout
 alias gbd='git branch -d'  # opposite to the above: delete a branch <- must after merging it into its upstream branch
 # Note that gs is also ghostscript
