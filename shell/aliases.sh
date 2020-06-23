@@ -88,6 +88,9 @@ alias gf='git fetch'
 # alias gl='git pull'  # = fetch + merge
 alias gup='git pull --rebase' # = fetch+rebase, better than gl in most cases
 alias gp='git push'
+alias gpsu='git remote --set-upstream' # equalivant to git push -u
+alias gpsuo='git remote --set-upstream origin' 
+alias gpsuom='git remote --set-upstream origin master' 
 alias gg='git graph'
 # unalias gd
 alias gd='git diff'
@@ -124,6 +127,13 @@ alias gbss='git bisect start'
 alias gbsg='git bisect good'
 alias gbsb='git bisect bad'
 alias gbsr='git bisect reset'
+#remote
+alias grv='git remote -v'
+alias grmv='git remote rename'
+alias grrou='git remote rename origin upstream'
+alias gra='git remote add'
+alias grao='git remote add o'
+alias grset='git remote set-url' # change url of an existing remote
 #git log
 alias glog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glogs="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --stat --all"
