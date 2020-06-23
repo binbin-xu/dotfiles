@@ -20,7 +20,7 @@ path_prepend $HOME/.custom_bin
 # ------------------
 
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-export LIBRARY_PATH=/usr/local/lib:/usr/lib:$LIBRARY_PATH
+export LIBRARY_PATH=/usr/local/lib:/usr/lib${LIBRARY_PATH:+:$LIBRARY_PATH}
 export CPATH=/usr/include:$CPATH
 export CFLAGS=-I/usr/include
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
@@ -28,7 +28,7 @@ if [ -e /usr/local/cuda ]; then
     export CUDA_PATH=/usr/local/cuda
     path_prepend $CUDA_PATH/bin
     export CPATH=$CUDA_PATH/include:$CPATH
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_PATH/lib64:$CUDA_PATH/lib
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_PATH/lib64
     export CFLAGS=-I$CUDA_PATH/include
     export LDFLAGS="-L$CUDA_PATH/lib64 -L$CUDA_PATH/lib"
     # cudnn
