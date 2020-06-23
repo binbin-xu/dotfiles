@@ -178,6 +178,10 @@ function auto() {
         sed 's,</\?b>,,g'
 }
 
+init_conda(){
+    cp -r ~/.dotfiles/scripts/conda_project/. ./
+}
+
 init_autoenv(){
     vim .autoenv.zsh
     vim .autoenv_leave.zsh
