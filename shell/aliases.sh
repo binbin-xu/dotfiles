@@ -47,7 +47,7 @@ alias du='du -hs'
 # downloads
 alias wget='wget -c'
 alias curl='curl -C'
-alias rsync='rsync -av -P'
+alias rsync='rsync -avhr --progress -P'
 
 # git related aliases
 # there are also some alias in git config
