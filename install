@@ -4,6 +4,27 @@ set -e
 echo_green () {
     echo -e "\033[92m$*\033[0m"
 } 
+                                                
+echo_warning () {
+    echo -e "\033[33mWarning: $*\033[0m"
+}
+
+BACKDIR="$HOME/.dotfiles_conflict"
+mv_conflicts () {
+   if [[ -f "$1" && ! -L "$1" ]]
+   then
+       echo_warning "$1 existing, causing conflicts"
+       echo "The original file has been moved to $BACKDIR"
+       mv $1 $BACKDIR
+   fi 
+}
+
+# backup conflicts files
+[[ ! -d $BACKDIR ]] && mkdir $BACKDIR
+mv_conflicts ~/.profile
+mv_conflicts ~/.gitconfig
+mv_conflicts ~/.bash_profile
+mv_conflicts ~/.bashrc
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
