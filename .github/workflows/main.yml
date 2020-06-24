@@ -21,5 +21,8 @@ jobs:
 
     - name: Install dotfiles
       run: |
-        rm ~/.bash_profile ~/.bashrc ~/.profile # due to file existing in github actions
+        [ -f ~/.profile ] && rm ~/.profile
+        [ -f ~/.bash_profile ] && rm ~/.bash_profile
+        [ -f ~/.bashrc ] && rm ~/.bashrc
+        [ -f ~/.gitconfig ] && rm ~/.gitconfig
         bash install
