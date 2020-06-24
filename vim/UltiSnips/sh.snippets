@@ -112,6 +112,10 @@ if ${2:[[ ${1:condition} ]]}; then
 fi
 endsnippet
 
+snippet if_not_exist_mkdir
+[[ ! -d ${1:DIR} ]] && mkdir $1
+endsnippet
+
 snippet if_file "if file exist" 
 if [[ -f "${1:File}" ]]
 then
