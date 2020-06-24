@@ -97,7 +97,7 @@ endsnippet
 # case
 
 snippet     case
-case "$${1:{name\}}" in
+case "$${1:{name}}" in
     ${2:pattern*})
         ${0}
         ;;
@@ -112,10 +112,18 @@ if ${2:[[ ${1:condition} ]]}; then
 fi
 endsnippet
 
-snippet if_file "if file exist" b
-if test -f "${1:File}"; then
-    ${2:file exist}
-fi
+snippet if_file "if file exist" 
+if [[ -f "${1:File}" ]]
+then
+	${0:${VISUAL}}
+fi 
+endsnippet
+
+snippet if_file_nolink  "if file (and not link) exist" 
+if [[ -f "${1:File}" && ! -L "$1" ]]
+then
+	${0:${VISUAL}}
+fi 
 endsnippet
 
 snippet if_dir "if dir exist" b
