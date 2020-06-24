@@ -50,8 +50,19 @@ setopt interactive_comments # Allow comments even in interactive shells (especia
 setopt auto_cd
 zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# Group matches and Describe
+zstyle ':completion:*' group-name ''
+#zstyle ':completion:*:commands' list-colors '=*=1;32'     # colorize different groups diferently
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+ # Completion caching
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path .zcache
 # ===== Completion 
 setopt always_to_end # When completing from the middle of a word, move the cursor to the end of the word    
 setopt auto_menu # show completion menu on successive tab press. needs unsetop menu_complete to work
