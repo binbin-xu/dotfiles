@@ -335,6 +335,8 @@ let g:ycm_use_ultisnips_completer = 1
 " use tab and S-tab to select completion, 
 " and <c-j> to activate snippets copletion
 let g:UltiSnipsExpandTrigger = '<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'                                       
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
