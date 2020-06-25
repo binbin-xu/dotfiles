@@ -120,6 +120,7 @@ fpr() {
 }
 
 # fzf
+# ctrl+r: search history || ctrl+t: search current folder
 if command -v fzf > /dev/null; then
 
   function fzf-history() {
@@ -138,6 +139,15 @@ if command -v fzf > /dev/null; then
   fh() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
   }
+
+# = alt+c 
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
 
   # fkill - kill process
   fkill() {
