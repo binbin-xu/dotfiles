@@ -174,17 +174,17 @@ set iminsert=0
 
 " PEP 8 indentation
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
-au BufNewFile,BufRead *.h, *.C++
-  \ set tabstop=4
-  \ set softtabstop=4
-  \ set shiftwidth=4
-  \ set textwidth=79
+" au BufNewFile,BufRead *.h, *.C++
+"   \ set tabstop=4
+"   \ set softtabstop=4
+"   \ set shiftwidth=4
+"   \ set textwidth=79
 
 
-au BufNewFile,BufRead *.h, *.C++
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+au BufNewFile,BufRead *.h,*.C++
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
     \ set textwidth=79
 
 " wrap for long line
