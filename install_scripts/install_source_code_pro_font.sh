@@ -32,7 +32,7 @@ case "$(uname -s)" in
         rm -rf $TMPDIR
 
         set +x
-
+        ;;
     CYGWIN*|MINGW32*|MSYS*)
         exit 0
         ;;

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ "`uname`" != "Darwin" ]; then
   exit 0
 elif which brew &>/dev/null; then
