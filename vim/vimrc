@@ -3,6 +3,7 @@
 "------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
+let g:has_async = v:version >= 800 || has('nvim')
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -18,18 +19,27 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'vim-airline/vim-airline'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sjl/gundo.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
+"Plugin 'scrooloose/syntastic'
+if g:has_async
+  Plugin 'dense-analysis/ale'
+endif
 Plugin 'SirVer/ultisnips'    " snippets engine.
 Plugin 'honza/vim-snippets'   " Snippets templates
 Plugin 'valloric/youcompleteme'
-
+Plugin 'junegunn/fzf.vim'
+Plugin 'mhinz/vim-signify', { 'branch': 'legacy' }
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -131,7 +141,7 @@ set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,
 set wildmode=list,full
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+    set ttymouse=xterm2                                               
 endif
 
 " Ignore compiled files
@@ -273,19 +283,103 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 " tagbar
 nnoremap <Leader>t :TagbarToggle<CR>
 
-" ctrlp
-nnoremap ; :CtrlPBuffer<CR>
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_show_hidden = 1
+" gutentags 
+" C-]: open in the buffer; C-W + ]: open in new window; C-W+}: preview
+" set gutentags project root ( when meeting the following folder)
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+" move auto-generated tags files into ~/.vimcache/tags 
+let s:vim_tags = expand('~/.vimcache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+" set ctags parameters
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" create ~/.cache/tags if not existing 
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
+" vim-signify
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+
+" nerd-ccommenter
+" leader+c+space: toggle | leader+cc: comment | leader+cu: uncomment
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" " Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" " Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" " Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+" ale
+let g:ale_linters = { 'cpp': ['cppchec', 'g++'], 'c': ['gcc'], 'python': ['pylint', 'flake8'], 'sh': ['shellcheck']}
+let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '?'
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+" Move between linting errors
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
+nmap <Leader>a :ALEDetail<CR>
+
+
+" autoformat
+" remap <leader>f :Autoformat<CR>
+noremap <leader>f :Autoformat<CR>
+"
+" " ctrlp
+" nnoremap ; :CtrlPBuffer<CR>
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_show_hidden = 1
+
+" use LeaderF to replace ctrlp
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_ShortcutB = '<c-b>'
+noremap <c-n> :LeaderfMru<cr>
+noremap <c-f> :LeaderfFunction!<cr>
+noremap <c-b> :LeaderfBuffer<cr>
+"noremap <m-m> :LeaderfTag<cr>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vimcache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_ShowDevIcons = 0   " diable icon to avoid installing nerdfonts
 
 " easymotion
 map <Space> <Plug>(easymotion-prefix)
+map ss <Plug>(easymotion-s2)
 
 " air-line
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-endif
+endif                                       
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
@@ -315,19 +409,6 @@ if has('python3')
     let g:gundo_prefer_python3 = 1
 endif
 
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': []
-\}
-nnoremap <Leader>s :SyntasticCheck<CR>
-nnoremap <Leader>r :SyntasticReset<CR>
-nnoremap <Leader>i :SyntasticInfo<CR>
-nnoremap <Leader>m :SyntasticToggleMode<CR>
 
 " ultisnips
 " YouCompleteMe and UltiSnips compatibility.
@@ -337,7 +418,10 @@ let g:ycm_use_ultisnips_completer = 1
 let g:UltiSnipsExpandTrigger = '<c-j>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'                                       
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
+" jump to declaration/definition
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Additional YouCompleteMe config.
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
