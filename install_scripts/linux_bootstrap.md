@@ -134,9 +134,11 @@ sudo apt install \
     curl git vim htop rsync zsh tmux iotop \
     build-essential pkg-config cmake \
     python-pip python-virtualenv python-dev python3 python3-venv \
-    axel aria2 silversearcher-ag \
-    autojump vnstat lm-sensors neofetch \
-    vnstat vnstati # network monitoring
+    axel aria2 \ # download managaer/
+    autojump silversearcher-ag vnstat lm-sensors neofetch \
+    vnstat vnstati \ # network monitoring 
+    snapd # snapstore
+    tree
 ```
 
 ### scientific computing
@@ -145,6 +147,7 @@ sudo apt install \
 sudo apt install python-numpy python-scipy \
     gfortran libblas-dev liblapack-dev \
     libjpeg-dev zlib1g-dev python-openc
+pip install pylint autopep8 yapf
 ```
 
 ## set default shell
