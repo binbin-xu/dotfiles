@@ -27,7 +27,8 @@ alias_if_exists "id" "/usr/local/bin/gid"
 
 # Use colors in coreutils utilities output
 alias grep='grep --color'
-
+# shellcheck
+alias sc='shellcheck'
 # ls aliases
 alias ll='ls -lah'
 alias la='ls -A'
