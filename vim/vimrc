@@ -223,6 +223,14 @@ set browsedir=buffer
 set hidden
 
 
+" Undo
+if !isdirectory($HOME."/.vim_undodir")
+    call mkdir($HOME."/.vim_undodir", "", 0700)
+endif
+set undodir=~/.vim_undodir
+set undofile
+
+
 " A buffer becomes hidden when it is abandoned
 set hidden " allow auto-hiding of edited buffers
 " This setting makes search case-insensitive when all characters in the string
