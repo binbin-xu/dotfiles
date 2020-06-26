@@ -359,8 +359,8 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_ShowDevIcons = 0   " diable icon to avoid installing nerdfonts
 
 " easymotion
-map <Space> <Plug>(easymotion-prefix)
-map ss <Plug>(easymotion-s2)
+"map <Space> <Plug>(easymotion-prefix)
+"map ss <Plug>(easymotion-s2)
 
 " air-line
 let g:airline_powerline_fonts = 1
