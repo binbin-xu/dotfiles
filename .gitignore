@@ -1,9 +1,8 @@
-vim/bundle/
-# except
-!vim/bundle/Vundle.vim
-
+vim/plugged/
 vim/UltiSnips/*.snip
 
 tmux/plugins/
+# except
 !tmux/plugins/tpm
 tmux/resurrect/*
+

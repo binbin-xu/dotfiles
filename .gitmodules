@@ -28,9 +28,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "vim/bundle/Vundle.vim"]
-	path = vim/bundle/Vundle.vim
-	url = https://github.com/gmarik/Vundle.vim.git
 [submodule "git/diff-so-fancy"]
 	path = git/diff-so-fancy
 	url = https://github.com/so-fancy/diff-so-fancy.git
