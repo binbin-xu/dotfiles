@@ -43,5 +43,12 @@ echo_green "==> Install tmux plugins"
 
 echo_green "==> Install vim plugins"
 vim +PlugInstall +qall &> /dev/null 
+# instal ycmd
+if [[ ! -f "$HOME/.vim/plugged/youcompleteme/third_party/ycmd/ycm_core.so" ]]
+then
+    YCM_DIR="$HOME/.vim/plugged/youcompleteme"
+    cd "$YCM_DIR"
+    ./install.py
+fi 
 
 echo_green "Done!"
