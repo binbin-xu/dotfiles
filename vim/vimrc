@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-unimpaired'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'kshenoy/vim-signature'
 
 " Initialize plugin system
 call plug#end()
