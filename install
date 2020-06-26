@@ -48,6 +48,8 @@ if [[ ! -f "$HOME/.vim/plugged/youcompleteme/third_party/ycmd/ycm_core.so" ]]
 then
     YCM_DIR="$HOME/.vim/plugged/youcompleteme"
     cd "$YCM_DIR"
+    # if error: "python3.6m not installed" (e.g. in Ubuntu 16.04), run
+    # sudo apt install libpython3.6-dev
     ./install.py
 fi 
 
