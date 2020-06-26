@@ -15,12 +15,12 @@ mv_conflicts () {
    then
        echo_warning "$1 existing, causing conflicts"
        echo "The original file has been moved to $BACKDIR"
-       mv $1 $BACKDIR
-   fi 
+       mv "$1" "$BACKDIR"
+   fi     
 }
 
 # backup conflicts files
-[[ ! -d $BACKDIR ]] && mkdir $BACKDIR
+[[ ! -d "$BACKDIR" ]] && mkdir "$BACKDIR"
 mv_conflicts ~/.profile
 mv_conflicts ~/.gitconfig
 mv_conflicts ~/.bash_profile
