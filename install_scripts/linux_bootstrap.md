@@ -139,6 +139,7 @@ sudo apt install \
     vnstat vnstati \ # network monitoring 
     snapd # snapstore
     tree
+sudo snap install universal-ctags
 ```
 
 ### scientific computing
