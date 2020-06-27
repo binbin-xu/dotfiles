@@ -137,7 +137,8 @@ sudo apt install \
     axel aria2 \ # download managaer/
     autojump silversearcher-ag vnstat lm-sensors neofetch \
     vnstat vnstati \ # network monitoring 
-    snapd # snapstore
+    snapd # snapstore \
+    cppcheck clang libclang-dev \
     tree
 sudo snap install universal-ctags
 ```
