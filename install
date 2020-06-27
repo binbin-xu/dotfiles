@@ -50,6 +50,7 @@ then
     cd "$YCM_DIR"
     # if error: "python3.6m not installed" (e.g. in Ubuntu 16.04), run
     # sudo apt install libpython3.6-dev
+    # if memory insufficient: dont instal clang: ./install.py
     ./install.py --clang-completer
 fi 
 
