@@ -196,7 +196,7 @@ case "$(uname -s)" in
     Linux)
         #  echo 'Linux'
         alias watch_gpu='watch -n 0.1 nvidia-smi'
-        alias wg='watch -n 0.1 nvidia-smi'
+        alias wgpu='watch -n 0.1 nvidia-smi'
         alias ssh_unmount='fusermount -u '
         alias ls='ls --color=auto'
         alias o='xdg-open'
