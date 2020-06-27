@@ -281,6 +281,10 @@ nnoremap <Leader>t :TagbarToggle<CR>
 
 " gutentags 
 " C-]: open in the buffer; C-W + ]: open in new window; C-W+}: preview
+" Don't load me if there's no ctags file
+if !executable('ctags')
+    let g:gutentags_dont_load = 1
+endif
 " set gutentags project root ( when meeting the following folder)
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 " 所生成的数据文件的名称
