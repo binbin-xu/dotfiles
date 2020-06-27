@@ -62,7 +62,7 @@ zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
  # Completion caching
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion::complete:*' cache-path $HOME/.zcache
 # ===== Completion 
 setopt always_to_end # When completing from the middle of a word, move the cursor to the end of the word    
 setopt auto_menu # show completion menu on successive tab press. needs unsetop menu_complete to work
