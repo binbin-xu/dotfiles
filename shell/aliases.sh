@@ -78,7 +78,7 @@ function gcd {
 }
 # checkout 
 alias gco='git checkout'
-alias gcm='git checkout master'
+alias gcom='git checkout master'
 #alias gcd='git checkout dev'
 alias gcb='git checkout -b'  # create new branch and checkout
 alias gbd='git branch -d'  # opposite to the above: delete a branch <- must after merging it into its upstream branch
