@@ -27,7 +27,7 @@ alias_if_exists "id" "/usr/local/bin/gid"
 
 # Use colors in coreutils utilities output
 alias grep='grep --color'
-# shellcheck
+# chellcheck
 alias sc='shellcheck'
 # ls aliases
 alias ll='ls -lah'
@@ -171,7 +171,8 @@ alias coel='conda info --envs'
 alias coer='conda env remove --name'
 
 # path
-alias echo_path="echo '$PATH' | tr ':' '\n'"
+alias echo_path='echo $PATH | tr ":" "\n"'
+alias myip='curl ipinfo.io/ip 2> /dev/null'
 
 # Mirror stdout to stderr, useful for seeing data going through a pipe
 alias peek='tee >(cat 1>&2)'
