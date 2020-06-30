@@ -165,10 +165,6 @@ cd ~
 git clone git@github.com:binbin-xu/dotfiles.git
 cd dotfiles
 ./install
-
-# in case youcomepleteme server is down
-cd dotfiles/vim/bundle/youcompleteme
-./install.py
 ```
 
 ## Install fzf
