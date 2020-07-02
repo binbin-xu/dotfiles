@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'kien/ctrlp.vim'
 Plug 'Yggdroot/LeaderF'
 Plug 'mileszs/ack.vim'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-airline/vim-airline'
 "Plug 'easymotion/vim-easymotion'
@@ -277,7 +277,7 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 
 " tagbar
-nnoremap <Leader>t :TagbarToggle<CR>
+" nnoremap <Leader>t :TagbarToggle<CR>
 
 " gutentags 
 " C-]: open in the buffer; C-W + ]: open in new window; C-W+}: preview
