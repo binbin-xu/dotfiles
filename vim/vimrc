@@ -275,7 +275,7 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "---------------------
 " nerdtree
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
+" nnoremap <Leader>f :NERDTreeFind<CR>
 
 " tagbar
 " nnoremap <Leader>t :TagbarToggle<CR>
@@ -348,13 +348,16 @@ nmap <Leader>a :ALEDetail<CR>
 
 " autoformat
 " remap <leader>f :Autoformat<CR>
-noremap <leader>f :Autoformat<CR>
+noremap <leader>p :Autoformat<CR>
 "
 " " ctrlp
 " nnoremap ; :CtrlPBuffer<CR>
 " let g:ctrlp_switch_buffer = 0
 " let g:ctrlp_show_hidden = 1
 
+" " fzf replaced by leaderF
+" noremap <leader>f :Files<cr>
+"
 " use LeaderF to replace ctrlp
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '<c-b>'
