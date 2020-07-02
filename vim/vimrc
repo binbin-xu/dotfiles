@@ -26,6 +26,7 @@ endif
 Plug 'SirVer/ultisnips'    " snippets engine.
 Plug 'honza/vim-snippets'   " Snippets templates
 Plug 'valloric/youcompleteme'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 Plug 'scrooloose/nerdcommenter'
