@@ -12,7 +12,7 @@ source .anaconda3/bin/activate
 
 echo_bold "==> Installing the right pip and dependencies for the fresh python"
 pip_install --upgrade pip 
-conda_install -y python #=3.7  # meet tensorflow requirements
+conda_install python #=3.7  # meet tensorflow requirements
 
 #echo_bold "==> Installing computer vision-related packages"
 #pip_install \
