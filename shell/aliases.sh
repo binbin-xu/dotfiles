@@ -179,6 +179,8 @@ alias peek='tee >(cat 1>&2)'
 
 # ssh:
 # do not use aliases, use config instead
+alias cressida="ssh doc_cressida"
+alias bigboy="ssh doc_bigboy"
 
 
 ####################################################################
