@@ -29,3 +29,11 @@ there() {
     cd "$(readlink "${there}")"
 }
 
+pythonpath_remove() {
+    PYTHONPATH=$(echo -n "$PYTHONPATH" | awk -v RS=: -v ORS=: "\$0 != \"$1\"" | sed 's/:$//')
+}
+
+pythonpath_prepend() {
+    pythonpath_remove "$1"
+    PYTHONPATH="$1${PYTHONPATH:+":$PYTHONPATH"}"
+}
