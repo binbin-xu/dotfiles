@@ -15,7 +15,7 @@ ubuntu-drivers devices
 # sudo ubuntu-drivers autoinstall
 
 # install the selected version
-sudo apt install nvidia-440
+sudo apt install nvidia-driver-440
 
 echo "NVIDIA driver installed. nvidia-smi to see it after system reboot."
 # Reboot. Check that GPUs are visible using the command: nvidia-smi
