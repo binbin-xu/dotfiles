@@ -133,13 +133,12 @@ sudo apt install \
 	apt-transport-https ca-certificates software-properties-common \
     curl git vim htop rsync zsh tmux iotop \
     build-essential pkg-config cmake \
-    python-pip python-virtualenv python-dev python3 python3-venv \
-    axel aria2 \ # download managaer/
+    python-pip python-virtualenv python-dev python3 python3-venv python3-dev \
+    axel aria2 \
     autojump silversearcher-ag vnstat lm-sensors neofetch \
-    vnstat vnstati \ # network monitoring 
-    snapd # snapstore \
+    vnstat vnstati snapd \
     cppcheck clang libclang-dev \
-    tree
+    tree ssh-askpass
 sudo snap install universal-ctags
 ```
 
@@ -148,7 +147,7 @@ sudo snap install universal-ctags
 ```
 sudo apt install python-numpy python-scipy \
     gfortran libblas-dev liblapack-dev \
-    libjpeg-dev zlib1g-dev python-openc
+    libjpeg-dev zlib1g-dev python-opencv
 pip install pylint autopep8 yapf
 ```
 
