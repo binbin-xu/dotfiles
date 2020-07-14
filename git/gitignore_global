@@ -7,6 +7,7 @@
 *.o
 *.so
 *.pyc  # python
+__pycache__/
 *.out   # C++
 cmake-build-debug/
 build/
