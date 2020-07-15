@@ -33,6 +33,7 @@
     ~/.diff-so-fancy: git/diff-so-fancy 
     # aria2
     ~/.aria2/aria2.conf: aria2.conf
+    ~/.config/onedrive/config: onedrive_config
 # - create:
     # - ~/.vim/undo-history
 
