@@ -140,6 +140,7 @@ sudo apt install \
     cppcheck clang libclang-dev \
     tree ssh-askpass
 sudo snap install universal-ctags
+sudo apt install exfat-fuse exfat-utils
 ```
 
 ### scientific computing

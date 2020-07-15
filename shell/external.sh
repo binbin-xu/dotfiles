@@ -8,13 +8,13 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 # Python startup file
 export PYTHONSTARTUP=$HOME/.pythonrc
 
-# Vagrant
-VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
-
-# ssg-agent
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-      eval `ssh-agent`
-        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add ~/.ssh/id_ed25519
+# # Vagrant
+# VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+#
+# # ssg-agent
+# if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+#       eval `ssh-agent`
+#         ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+# fi
+# export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+# ssh-add -l > /dev/null || ssh-add ~/.ssh/id_ed25519
