@@ -133,7 +133,7 @@ sudo apt install \
 	apt-transport-https ca-certificates software-properties-common \
     curl git vim htop rsync zsh tmux iotop \
     build-essential pkg-config cmake \
-    python-pip python-virtualenv python-dev python3 python3-venv python3-dev \
+    python3-pip python-dev python3 python3-venv python3-dev \
     axel aria2 \
     autojump silversearcher-ag vnstat lm-sensors neofetch \
     vnstat vnstati snapd \
@@ -146,10 +146,20 @@ sudo apt install exfat-fuse exfat-utils
 ### scientific computing
 
 ```
-sudo apt install python-numpy python-scipy \
+pip install pylint autopep8 yapf numpy
+
+sudo apt install python3-scipy \
     gfortran libblas-dev liblapack-dev \
     libjpeg-dev zlib1g-dev python-opencv
-pip install pylint autopep8 yapf
+
+```
+  
+```
+
+### Install softwares
+```
+sudo snap install bitwarden
+sudo snap install code --classic
 ```
 
 ## set default shell
