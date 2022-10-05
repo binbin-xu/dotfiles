@@ -162,13 +162,14 @@ alias py_path='python -c "import sys; print(sys.path)"'
 alias py3_path='python3 -c "import sys; print(sys.path)"'
 alias torch_version='python -c "import torch; print(torch.version.cuda)"'
 #conda 
-alias ca='conda activate'
-alias coa='.anaconda/bin/activate'
-alias sa='source activate'
-alias cod='conda deactivate'  # different  from cd 
-alias sd="source deactivate"
-alias coel='conda info --envs'
-alias coer='conda env remove --name'
+# alias ca='conda activate'
+# alias coa='.anaconda/bin/activate'
+# alias sa='source activate'
+# alias cod='conda deactivate'  # different  from cd 
+# alias sd="source deactivate"
+# alias coel='conda info --envs'
+# alias coer='conda env remove --name'
+alias conda_export='conda env export > environment.yml'
 
 # path
 alias echo_path='echo $PATH | tr ":" "\n"'
