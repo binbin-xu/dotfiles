@@ -9,7 +9,7 @@ maybe group some commands to a bash
 ```
 su
 apt install sudo
-usermod -aG sudo anish
+usermod -aG sudo bxu
 ```
 
 ## enable non-free components
@@ -111,7 +111,7 @@ Host *.doc.ic.ac.uk
   It can save for example in a personal source drive
 
   ```
-  ln -s dropbox/config/ssh ~/.ssh/config
+  ln -s ~/Dropbox/config/ssh ~/.ssh/config
   ```
 
   
@@ -127,7 +127,7 @@ Host *.doc.ic.ac.uk
 
 ## install programs
 
-```
+```bash
 sudo apt update
 sudo apt install \
 	apt-transport-https ca-certificates software-properties-common \
@@ -145,32 +145,32 @@ sudo apt install exfat-fuse exfat-utils
 
 ### scientific computing
 
-```
+```bash
 pip install pylint autopep8 yapf numpy
 
 sudo apt install python3-scipy \
     gfortran libblas-dev liblapack-dev \
-    libjpeg-dev zlib1g-dev python-opencv
+    libjpeg-dev zlib1g-dev python3-opencv
 
 ```
   
-```
 
 ### Install softwares
-```
+
+```bash
 sudo snap install bitwarden
 sudo snap install code --classic
 ```
 
 ## set default shell
 
-```
+```bash
 chsh -s /usr/bin/zsh
 ```
 
 ## install dotfiles
 
-```
+```bash
 cd ~
 git clone git@github.com:binbin-xu/dotfiles.git
 cd dotfiles
@@ -179,23 +179,29 @@ cd dotfiles
 
 ## Install fzf
 
-```
-cd $HOME
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+```bash
+cd $HOME/dotfiles/install_scripts/
+./install_fzf.sh
+
+# cd $HOME
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
 ```
 
 ## Install rg
 
-```
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-sudo dpkg -i ripgrep_11.0.2_amd64.deb
-rm ripgrep_11.0.2_amd64.deb
+```bash
+cd $HOME/dotfiles/install_scripts/
+./install_rg.sh
+
+# curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+# sudo dpkg -i ripgrep_11.0.2_amd64.deb
+# rm ripgrep_11.0.2_amd64.deb
 ```
 
 ## gpu setup
 
-```
+```bash
 cd ~/src/dotfiles-local
 git checkout gpu
 ./install
