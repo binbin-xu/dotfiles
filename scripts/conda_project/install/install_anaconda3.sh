@@ -8,6 +8,6 @@ if [ ! -d $ROOT/.anaconda3 ]; then
   echo $ROOT
   echo $HERE
   cd $ROOT
-  curl -L https://www.doc.ic.ac.uk/~bx516/tools/install_anaconda3.sh | bash -s .
+  curl -L https://binbin-xu.github.io/tools/install_anaconda3.sh | bash -s .
 fi
 
