@@ -37,3 +37,28 @@ pythonpath_prepend() {
     pythonpath_remove "$1"
     PYTHONPATH="$1${PYTHONPATH:+":$PYTHONPATH"}"
 }
+
+###### for MAC GNU commands
+gnu_utils=(
+  coreutils
+  # the other utils ...
+)
+
+gnu() {
+  for _util in "${gnu_utils[@]}"; do
+    # Intel
+    # export PATH="/usr/local/opt/$_util/libexec/gnubin:$PATH"
+    # M1
+    export PATH="$(brew --prefix)/opt/$_util/libexec/gnubin:$PATH"
+  done
+  [[ $1 == "--quiet" ]] || echo "Switched to GNU utils!"
+}
+
+bsd() {
+  for _util in "${gnu_utils[@]}"; do
+    export PATH="$(echo $PATH | sed "s|/usr/local/opt/$_util/libexec/gnubin:||")"
+  done
+  echo "Switched to BSD utils!"
+}
+
+gnu --quiet

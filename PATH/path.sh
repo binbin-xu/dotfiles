@@ -6,13 +6,14 @@ if [ -e ~/.npm-packages ]; then
 fi
 
 #brew sbin
-path_prepend /usr/local/bin
-path_prepend /usr/local/sbin
+# path_prepend /usr/local/bin
+# path_prepend /usr/local/sbin
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # custom bin scripts
-path_prepend $HOME/.custom_bin
+# path_prepend $HOME/.custom_bin
 
 
 # ------------------
@@ -48,6 +49,8 @@ fi
 # -------------------------------------------
 path_append $HOME/.diff-so-fancy
 
+# python
+path_append $HOME/Library/Python/3.9/bin
 #############################################
 #### machine-specific configuration
 #############################################

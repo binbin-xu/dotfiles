@@ -193,7 +193,9 @@ case "$(uname -s)" in
         alias bu="brew update && brew outdated | xargs brew upgrade  && brew cleanup -s"
         alias mvf='mv "$(pfs)"' # Move current finder selection
         alias ssh_unmount='sudo diskutil unmount force '
-        alias ls='/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto'
+        # deprated due to M1
+        # alias ls='/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto'
+        alias ls='ls --color=auto'
         alias o='open'
         ;;
 
