@@ -25,7 +25,7 @@ dist/
 \.#*
 .ipynb_checkpoints/
 .idea/
-.vscode/
+# .vscode/
 
 # Logs and databases #
 ######################
