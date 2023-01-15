@@ -61,4 +61,6 @@ bsd() {
   echo "Switched to BSD utils!"
 }
 
-gnu --quiet
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  gnu --quiet
+fi
