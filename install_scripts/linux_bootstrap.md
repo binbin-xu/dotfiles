@@ -129,18 +129,18 @@ Host *.doc.ic.ac.uk
 
 ```bash
 sudo apt update
-sudo apt install \
+sudo apt -y install \
 	apt-transport-https ca-certificates software-properties-common \
     curl git vim htop rsync zsh tmux iotop \
     build-essential pkg-config cmake \
-    python3-pip python-dev python3 python3-venv python3-dev \
+    python3-pip python3 python3-venv python3-dev \
     axel aria2 \
     autojump silversearcher-ag vnstat lm-sensors neofetch \
     vnstat vnstati snapd \
     cppcheck clang libclang-dev \
     tree ssh-askpass
 sudo snap install universal-ctags
-sudo apt install exfat-fuse exfat-utils
+sudo apt -y install exfat-fuse exfatprogs
 ```
 
 ### scientific computing
@@ -148,7 +148,7 @@ sudo apt install exfat-fuse exfat-utils
 ```bash
 pip install pylint autopep8 yapf numpy
 
-sudo apt install python3-scipy \
+sudo apt -y install python3-scipy \
     gfortran libblas-dev liblapack-dev \
     libjpeg-dev zlib1g-dev python3-opencv
 
