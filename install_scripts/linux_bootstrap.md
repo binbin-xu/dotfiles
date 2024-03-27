@@ -86,6 +86,12 @@ ssh-copy-id -i .ssh/id_ed25519.pub user@server
 
 Only need to type ssh password once to transfer the public key.  It will be saved in Add ssh key to `~/.ssh/authorized_keys` in the server side.
 
+* for windows, since `ssh-copy-id` is not available, we need to manually append the key to the `~/.ssh/authorized_keys` file.
+
+  ```
+  Get-Content ~/.ssh/id_ed25519.pub | ssh user@server "cat >> .ssh/authorized_keys"
+  ```
+
 * ssh config
   Do not use alias to set ssh, instead using config file in `.ssh/config`
 

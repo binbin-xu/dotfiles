@@ -161,6 +161,7 @@ alias pip_install='python3 -m pip install --user'
 alias py_path='python -c "import sys; print(sys.path)"'
 alias py3_path='python3 -c "import sys; print(sys.path)"'
 alias torch_version='python -c "import torch; print(torch.version.cuda)"'
+alias torch_cuda='python -c "import torch; print(torch.cuda.is_available())"'
 #conda 
 # alias ca='conda activate'
 # alias coa='.anaconda/bin/activate'
