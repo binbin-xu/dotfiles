@@ -4,7 +4,7 @@ set -e  # halt on first error
 show_usage()
 {
 echo "Usage: extract <archived / compressed file>"
-echo "supports: tar.gz, tar.xz, gz, tgz, xz, bz2, tar, rar, zip"
+echo "supports: tar.gz, tar.xz, gz, tgz, xz, bz2, tar, rar, zip, zst, 7z"
 }
 
 echo_error () {
@@ -35,6 +35,8 @@ case $1 in
     *.tar) tar -xvf "$1";;
     *.rar) unrar e "$1";;
     *.zip) unzip "$1";;
+    *.zst) zstd -d --stdout "$1" | tar -xvf - ;;
+    *.7z) 7z x "$1" ;;
     *) echo_error "unsupported version yet";;
 esac
 

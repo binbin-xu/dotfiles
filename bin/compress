@@ -1,0 +1,125 @@
+#!/bin/sh
+set -e  # Halt on first error
+
+show_usage() {
+    echo "Usage: compress.sh <input folder or file> <output file>"
+    echo "Example: compress.sh myfolder myarchive.tar.gz"
+    echo "Supports: gz, tgz, xz, bz2, rar, zip, tar, tar.gz, tar.xz, zst, 7z"
+}
+
+echo_error() {
+    echo -e "\033[31mError: $*\033[0m"
+    exit 1
+}
+
+echo_green() {
+    echo -e "\033[92m$*\033[0m"
+}
+
+# Check for pv and set a flag
+pv_installed=false
+if command -v pv > /dev/null 2>&1; then
+    pv_installed=true
+fi
+
+# Ensure correct number of arguments
+if [ "$#" -ne 2 ]; then
+    show_usage
+    exit 1
+fi
+
+input=$1
+output=$2
+
+echo "Compressing [$input] into [$output]..."
+
+compress_with_pv() {
+    case $1 in
+        *.tar.gz)
+            tar -cf - "$2" | pv -s $(du -sb "$2" | awk '{print $1}') | gzip > "$3"
+            ;;
+        *.tar.xz)
+            tar -cf - "$2" | pv -s $(du -sb "$2" | awk '{print $1}') | xz > "$3"
+            ;;
+        *.gz)
+            gzip -k "$2"
+            ;;
+        *.tgz)
+            tar -czvf "$3" "$2"
+            ;;
+        *.xz)
+            xz -k "$2"
+            ;;
+        *.bz2)
+            bzip2 -zk "$2"
+            ;;
+        *.tar)
+            tar -cf - "$2" | pv -s $(du -sb "$2" | awk '{print $1}') > "$3"
+            ;;
+        *.rar)
+            rar a "$3" "$2"
+            ;;
+        *.zip)
+            zip -r "$3" "$2"
+            ;;
+        *.zst)
+            tar -cf - "$2" | pv -s $(du -sb "$2" | awk '{print $1}') | zstd > "$3"
+            ;;
+        *.7z)
+            7z a "$output" "$input"
+            ;;
+        *)
+            echo_error "Progress bar not supported for this format."
+            ;;
+    esac
+}
+
+compress_without_pv() {
+    echo "Progress bar (pv) not installed. Compressing without progress bar..."
+    case $1 in
+        *.tar.gz)
+            tar -czvf "$3" "$2"
+            ;;
+        *.tar.xz)
+            tar -cJvf "$3" "$2"
+            ;;
+        *.gz)
+            gzip -k "$2"
+            ;;
+        *.tgz)
+            tar -czvf "$3" "$2"
+            ;;
+        *.xz)
+            xz -k "$2"
+            ;;
+        *.bz2)
+            bzip2 -zk "$2"
+            ;;
+        *.tar)
+            tar -cvf "$3" "$2"
+            ;;
+        *.rar)
+            rar a "$3" "$2"
+            ;;
+        *.zip)
+            zip -r "$3" "$2"
+            ;;
+        *.zst)
+            tar --use-compress-program=zstd -cf "$3" "$2"
+            ;;
+        *.7z)
+            7z a "$output" "$input"
+            ;;
+        *)
+            echo_error "Unsupported format for output."
+            ;;
+    esac
+}
+
+if $pv_installed; then
+    compress_with_pv "$output" "$input" "$output"
+else
+    compress_without_pv "$output" "$input" "$output"
+fi
+
+echo_green "Compression of [$input] to [$output] done! :)"
