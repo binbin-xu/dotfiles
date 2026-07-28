@@ -7,3 +7,4 @@ tmux/plugins/
 tmux/resurrect/*
 
 google_internal
+*.bak
