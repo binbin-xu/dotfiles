@@ -194,9 +194,12 @@ case "$(uname -s)" in
         alias bu="brew update && brew outdated | xargs brew upgrade  && brew cleanup -s"
         alias mvf='mv "$(pfs)"' # Move current finder selection
         alias ssh_unmount='sudo diskutil unmount force '
-        # deprated due to M1
-        # alias ls='/usr/local/opt/coreutils/libexec/gnubin/ls --color=auto'
-        alias ls='ls --color=auto'
+        # Use --color=auto if GNU coreutils ls is active, otherwise BSD ls -G
+        if ls --color=auto >/dev/null 2>&1; then
+            alias ls='ls --color=auto'
+        else
+            alias ls='ls -G'
+        fi
         alias o='open'
         ;;
 

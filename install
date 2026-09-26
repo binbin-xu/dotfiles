@@ -44,14 +44,15 @@ echo_green "==> Install tmux plugins"
 echo_green "==> Install vim plugins"
 vim +PlugInstall +qall &> /dev/null 
 # instal ycmd
-if [[ ! -f "$HOME/.vim/plugged/youcompleteme/third_party/ycmd/ycm_core.so" ]]
+YCM_DIR="$HOME/.vim/plugged/youcompleteme"
+if [[ -d "$YCM_DIR" && ! -f "$YCM_DIR/third_party/ycmd/ycm_core.so" ]]
 then
-    YCM_DIR="$HOME/.vim/plugged/youcompleteme"
-    cd "$YCM_DIR"
-    # if error: "python3.6m not installed" (e.g. in Ubuntu 16.04), run
-    # sudo apt install libpython3.6-dev
-    # if memory insufficient: dont instal clang: ./install.py
-    ./install.py --clang-completer
+    if command -v cmake >/dev/null 2>&1; then
+        cd "$YCM_DIR"
+        ./install.py --clang-completer || echo_warning "YCM build failed, continuing..."
+    else
+        echo_warning "cmake not found; skipping YouCompleteMe compilation"
+    fi
 fi 
 
 echo_green "Done!"

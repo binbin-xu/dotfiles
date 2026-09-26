@@ -10,10 +10,13 @@ google () {
   open "http://www.google.com/search?q=$search"
 }
 
-# Update dotfiles
+# Update dotfiles (public + google_internal if present)
 dfu() {
     (
         cd ~/.dotfiles && git pull --ff-only && ./install -q
+        if [ -d ~/.dotfiles/google_internal/.git ]; then
+            cd ~/.dotfiles/google_internal && git pull --ff-only
+        fi
     )
 }
 
@@ -121,6 +124,7 @@ fpr() {
 
 # fzf
 # ctrl+r: search history || ctrl+t: search current folder
+unalias fd fl 2>/dev/null
 if command -v fzf > /dev/null; then
 
   function fzf-history() {
